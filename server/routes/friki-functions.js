@@ -6,7 +6,8 @@ let lucecita;
 
 let board2 = new five.Board();
 board2.on("ready", function() {
-  lucecita = new five.Led(13);
+  // lucecita = new five.Led(13);
+  lucecita = new five.Led.RGB({pins:{red:6,green:5,blue:3}});
 });
 
 // const Messages = require('./../models/Message');
@@ -25,7 +26,10 @@ router.get('/1', (req,res,next) => {
 });
 
 router.get('/2', (req,res,next) => {
-  lucecita.blink(1000);
+  // lucecita.blink(1000);
+  lucecita.on();
+  lucecita.color('#de4ef1');
+
   res.json("Funtion2");
     // Message.findById(req.params.id)
     //     .then(message => {
