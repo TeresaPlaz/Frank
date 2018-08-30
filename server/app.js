@@ -62,9 +62,21 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
-
+//ROUTES
 const index = require('./routes/index');
+const about = require('./routes/about');
+
 app.use('/', index);
+app.use('/about', about);
+
+//HELLO WORLD ARDUINO
+let five = require("johnny-five");
+let board = new five.Board();
+
+board.on("ready", function() {
+  let lucecita = new five.Led(13);
+  lucecita.blink(500);
+});
 
 
 module.exports = app;
