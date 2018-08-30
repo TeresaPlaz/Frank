@@ -1,20 +1,39 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const Messages = require('./../models/Message');
+let five = require("johnny-five");
+let lucecita;
 
-//el if chequea si hay un id para controlar los errores, luego se hace el query en la base de datos con el id, aunque deberiamos usar find en el usuario, no es el mensaje para ensenarlo como me dijiste y cuando terminar envia esos datos como json
-router.get('/functions', (req,res,next) => {
+let board2 = new five.Board();
+board2.on("ready", function() {
+  lucecita = new five.Led(13);
+});
+
+// const Messages = require('./../models/Message');
+
+
+router.get('/1', (req,res,next) => {
+  lucecita.blink(100);
+  res.json("Funtion1 - Rave");
 
   // Message.findById(req.params.id)
   //     .then(message => {
   //         res.json(message);
   //     })
   //     .catch(error => next(error));
+
 });
 
-// => donde va la otra funcion? ok. pero entonces para otra funcion? si quieres hacer una pagina por funcion?
+router.get('/2', (req,res,next) => {
+  lucecita.blink(1000);
+  res.json("Funtion2");
+    // Message.findById(req.params.id)
+    //     .then(message => {
+    //         res.json(message);
+    //     })
+    //     .catch(error => next(error));
 
+});
 
 module.exports = router;
 

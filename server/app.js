@@ -25,8 +25,8 @@ mongoose
 
 const app_name = require('./package.json').name;
 const debug = require( 'debug' )( `${app_name}:${path.basename( __filename ).split( '.' )[ 0 ]}` );
-const passportSetup = require('./configs/passport');
-passportSetup(passport);
+// const passportSetup = require('./configs/passport');
+// passportSetup(passport);
 
 const app = express();
 
@@ -65,18 +65,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 //ROUTES
 const index = require('./routes/index');
 const about = require('./routes/about');
+const functions = require('./routes/friki-functions');
 
 app.use('/', index);
 app.use('/about', about);
-
-//HELLO WORLD ARDUINO
-let five = require("johnny-five");
-let board = new five.Board();
-
-board.on("ready", function() {
-  let lucecita = new five.Led(13);
-  lucecita.blink(500);
-});
-
+app.use('/functions', functions);
 
 module.exports = app;

@@ -3,7 +3,8 @@ const router = express.Router();
 const mongoose = require('mongoose');
 
 router.get('/', (req,res,next) => {
-  // res.render('about'); <- ahora se enviara json de respuesta
+  
+  res.json('ABOUT');
 });
 
 module.exports = router;
