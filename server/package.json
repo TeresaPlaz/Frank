@@ -11,10 +11,6 @@
     "cookie-parser": "~1.4.3",
     "dotenv": "~4.0.0",
     "express": "~4.16.0",
-<<<<<<< Updated upstream
-=======
-    "hbs": "~4.0.1",
->>>>>>> Stashed changes
     "johnny-five": "^1.0.0",
     "mongoose": "~4.13.4",
     "morgan": "~1.9.0",
