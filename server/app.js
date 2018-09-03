@@ -25,8 +25,8 @@ mongoose
 
 const app_name = require('./package.json').name;
 const debug = require( 'debug' )( `${app_name}:${path.basename( __filename ).split( '.' )[ 0 ]}` );
-// const passportSetup = require('./configs/passport');
-// passportSetup(passport);
+const passportSetup = require('./configs/passport');
+passportSetup(passport);
 
 const app = express();
 
@@ -62,13 +62,16 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
+
 //ROUTES
 const index = require('./routes/index');
 const about = require('./routes/about');
 const functions = require('./routes/friki-functions');
+const auth = require( './routes/auth-routes' );
 
 app.use('/', index);
 app.use('/about', about);
 app.use('/functions', functions);
+app.use( '/user', auth );
 
 module.exports = app;
