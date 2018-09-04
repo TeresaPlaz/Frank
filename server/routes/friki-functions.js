@@ -2,19 +2,13 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 // const Messages = require('./../models/Message');
-let five = require("johnny-five"), board, lcd, led;
+let five = require("johnny-five"), board, lcd, led, servin;
 board = new five.Board();
 
 
 board.on("ready", function() {
   led = new five.Led.RGB({
-    pins: {
-      red: 7,
-      green: 5,
-      blue: 3
-    }
-  });
-
+    pins: {green:7,red: 5,blue: 3}  });
 
   lcd = new five.LCD({
       // LCD pin name RS EN DB4 DB5 DB6 DB7
@@ -24,24 +18,30 @@ board.on("ready", function() {
       rows: 2,
       cols: 16
     });
+
+  servin = new five.Servo({
+    pin: 6, 
+    center: true,
+    range: [45, 135],
+  }); 
+
 });
 
 // FUNCTION 01 BLINK
 router.get('/1', (req,res,next) => {
-  led.on();
-  res.json("Funtion1 - Rave");
+  led.blink(300);
+  res.json("Funtion1 - ON");
 });
 
-// FUNCTION 02 GREEN
+// FUNCTION 02 OFF
 router.get('/2', (req,res,next) => {
-  led.color("yellow");
-  led.off();
-  res.json("Funtion2 - GREEN");
+  led.stop().off();
+  res.json("Funtion2 - OFF");
 });
 
 // FUNCTION 03 RED
 router.get('/3', (req,res,next) => {
-  // lucecita.off();
+  led.stop();
   led.color('red'); // <===== [COLOR]
   
   res.json("Funtion3 - RED");
@@ -49,15 +49,22 @@ router.get('/3', (req,res,next) => {
 
 // FUNCTION 04 BLUE
 router.get('/4', (req,res,next) => {
-  // lucecita.off();
+  led.stop();
   led.color('blue'); // <===== [COLOR]
 
   res.json("Funtion4 - BLUE");
     
 });
-
+// FUNCTION 05 PURPLE
 router.get('/5', (req,res,next) => {
+  led.stop();
+  led.color('purple'); // <===== [COLOR]
+  res.json('Function5 -- PURPLE');
+});
+// FUNCTION 06 TEXT
+router.get('/6', (req,res,next) => {
     lcd.clear();
+    led.stop().off();
     lcd.cursor(0, 0).print(`Hola Mundo -> `);
     lcd.cursor(1, 0).print(`Mi primer texto,`);
   
@@ -71,12 +78,12 @@ router.get('/5', (req,res,next) => {
     //     })
     //     .catch(error => next(error));
 
-  res.json("Function5 - Text");
+  res.json("Function6 - Text");
 });
 
-
-router.get('/6', (req,res,next) => {
-
+// FUNCTION 07 RUNNING-MAN
+router.get('/7', (req,res,next) => {
+  led.stop().off();
   let frame = 1;
   let frames = [":runninga:", ":runningb:"];
   let row = 1;
@@ -100,7 +107,21 @@ router.get('/6', (req,res,next) => {
       }
     }); 
   
-  res.json("Function6 - Running_Man");
+  res.json("Function7 - Running_Man");
+});
+
+// FUNCTION 08 SERVO ON
+router.get('/8', (req,res,next) => {
+  servin.sweep();
+  led.stop().off();
+  res.json("Funtion8 - SERVO ON");
+});
+
+// FUNCTION 09 SERVO OFF
+router.get('/9', (req,res,next) => {
+  servin.stop();
+  led.stop().off();
+  res.json("Funtion9 - SERVO OFF");
 });
 
 module.exports = router;
