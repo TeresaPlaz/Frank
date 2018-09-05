@@ -1,8 +1,16 @@
+*{
+  margin: 0;
+}
 body {
-  padding: 50px;
+  // padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  // background-image: "../images/Arduino.mp4";
 }
 
 a {
   color: #00B7FF;
+}
+video{
+  border: none;
+  overflow: hidden;
 }

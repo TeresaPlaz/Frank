@@ -2,18 +2,18 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 // const Messages = require('./../models/Message');
-let five = require("johnny-five"), board, lcd, led, servin;
+let five = require("johnny-five"), board, lcd, led, servin, running;
 board = new five.Board();
 
 
 board.on("ready", function() {
   led = new five.Led.RGB({
-    pins: {green:7,red: 5,blue: 3}  });
+    pins: {green:4,red: 5,blue: 3}  });
 
   lcd = new five.LCD({
       // LCD pin name RS EN DB4 DB5 DB6 DB7
       // Arduino pin # 7  8  9  10 11 12
-      pins: [8, 9, 10, 11, 12, 13],
+      pins: [7, 8, 9, 10, 11, 12],
       backlight: 6,
       rows: 2,
       cols: 16
@@ -55,12 +55,14 @@ router.get('/4', (req,res,next) => {
   res.json("Funtion4 - BLUE");
     
 });
+
 // FUNCTION 05 PURPLE
 router.get('/5', (req,res,next) => {
   led.stop();
   led.color('purple'); // <===== [COLOR]
   res.json('Function5 -- PURPLE');
 });
+
 // FUNCTION 06 TEXT
 router.get('/6', (req,res,next) => {
     lcd.clear();
@@ -83,16 +85,16 @@ router.get('/6', (req,res,next) => {
 
 // FUNCTION 07 RUNNING-MAN
 router.get('/7', (req,res,next) => {
+  servin.stop();
   led.stop().off();
   let frame = 1;
   let frames = [":runninga:", ":runningb:"];
   let row = 1;
   let col = 0;
-
   lcd.useChar("runninga");
   lcd.useChar("runningb");
 
-    board.loop(300, function() 
+ running =  setInterval(function() 
     {
       lcd.home().print("The Running Man"); 
       lcd.clear().cursor(row, col).print(
@@ -105,13 +107,15 @@ router.get('/7', (req,res,next) => {
         //   row = 0;
         // }
       }
-    }); 
+    }, 300); 
   
   res.json("Function7 - Running_Man");
 });
 
 // FUNCTION 08 SERVO ON
 router.get('/8', (req,res,next) => {
+  clearInterval(running);
+  lcd.clear();
   servin.sweep();
   led.stop().off();
   res.json("Funtion8 - SERVO ON");

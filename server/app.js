@@ -10,6 +10,7 @@ const path         = require('path');
 const cors         = require('cors');
 const session      = require('express-session');
 const passport     = require('passport');
+const hbs          = require('hbs');
 
 
 
@@ -32,7 +33,7 @@ const app = express();
 
 // Middleware Setup
 app.use(session({
-  secret: 'angular auth passport secret shh',
+  secret: 'angular auth passport',
   resave: true,
   saveUninitialized: true,
   cookie : { httpOnly: true, maxAge: 2419200000 }
@@ -73,5 +74,8 @@ app.use('/', index);
 app.use('/about', about);
 app.use('/functions', functions);
 app.use( '/user', auth );
-
+// This will be the default route is nothing else is caught
+app.use(function(req, res) {
+  res.sendFile(__dirname + '/public/index.html');
+});
 module.exports = app;
