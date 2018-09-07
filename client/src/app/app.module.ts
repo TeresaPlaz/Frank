@@ -11,7 +11,6 @@ import { FrankiHomeComponent } from './franki-home/franki-home.component';
 import { FrankiAboutComponent } from './franki-about/franki-about.component';
 import { LogFormComponent } from './franki-home/log-form/log-form.component';
 import { FrankiFunctionsComponent } from './franki-functions/franki-functions.component';
-import { SignUpComponent } from './franki-home/sign-up/sign-up.component';
 import { ProfileComponent } from './franki-about/profile/profile.component';
 import { InstructionsComponent } from './franki-about/instructions/instructions.component';
 
@@ -22,7 +21,6 @@ import { InstructionsComponent } from './franki-about/instructions/instructions.
     FrankiAboutComponent,
     LogFormComponent,
     FrankiFunctionsComponent,
-    SignUpComponent,
     ProfileComponent,
     InstructionsComponent
   ],

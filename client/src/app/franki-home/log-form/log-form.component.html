@@ -1,3 +1,54 @@
+<!-- <div *ngIf="condition; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>...</ng-template>
+<ng-template #elseBlock>...</ng-template> -->
+
+<div *ngIf="condition;
+    else 
+      elseBlock">
+<!-- FORM TO LOGIN -->
+      <div class="container">
+        <form action="/users/login" method="POST">
+          <div class="form-group">
+            <label for="username1">Username:</label>
+            <input class="form-control" type="text" name="username" id="username1" placeholder="Enter username">
+          </div>
+          <div class="form-group">
+            <label for="inputPassword2" >Password:</label>
+            <input type="password" class="form-control" name="password"  id="inputPassword2" placeholder="Password">
+          </div>
+          <div>
+            <input type="submit" value="Log In" class="btn btn-primary">
+          </div>
+        </form>
+        </div>
+      
+</div>
+<!-- FORM TO SINUP -->
+<ng-template #elseBlock>
+  <form action="/" method="POST">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input id="username" class="form-control" type="text" name="username" placeholder="Your username">
+    </div>
+    <div class="form-group">
+      <label for="password1">Password</label>
+      <input id="password1" type="password" class="form-control" name="password" placeholder="Your password">
+    </div>
+    <div class="form-group">
+      <label for="password2">Retype password:</label>
+      <input id="password2" type="password" class="form-control" name="password2" aria-describedby="passwordHelp" placeholder="Don't leave it to chance">
+       <small id="passwordHelp" class="form-text text-muted">Sup</small>
+    </div>
+    
+  </div>
+  <div class="">
+  <button type="submit" class="btn btn-primary">Create account</button>
+  </div>
+  </form>
+  
+</ng-template>
+
+<!-- 
 <form>
   <div class="form-group">
       <label for="userName">Username: </label>
@@ -8,4 +59,4 @@
       <input id="password2" type="password" class="form-control">
  </div>
 <button class="btn btn-primary">Login</button> 
-</form>
+</form> -->
