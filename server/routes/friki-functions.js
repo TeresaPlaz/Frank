@@ -3,29 +3,64 @@ const router = express.Router();
 const mongoose = require('mongoose');
 // const Messages = require('./../models/Message');
 let five = require("johnny-five"), board, lcd, led, servin, running;
-board = new five.Board();
 
+// EtherPortClient INIT 
+const EtherPortClient = require('etherport-client').EtherPortClient;
+board = new five.Board({
+  port: new EtherPortClient({
+    host: '192.168.0.16',  
+    port: 3030
+  }),
+  repl: false
+});
 
+const LED_PIN = 2;
+
+// BOARD
 board.on("ready", function() {
-  led = new five.Led.RGB({
-    pins: {green:4,red: 5,blue: 3}  });
+  // let Franky = new five.Board({ESP8266: io, repl: true});
+  // Franky.on('ready', function () {
+  //   led = new five.Led.RGB({
+  //     pins: {green:4,red: 5,blue: 3}  });
+  
+  //   lcd = new five.LCD({
+  //       // LCD pin name RS EN DB4 DB5 DB6 DB7
+  //       // Arduino pin # 7  8  9  10 11 12
+  //       pins: [7, 8, 9, 10, 11, 12],
+  //       backlight: 6,
+  //       rows: 2,
+  //       cols: 16
+  //     });
 
-  lcd = new five.LCD({
-      // LCD pin name RS EN DB4 DB5 DB6 DB7
-      // Arduino pin # 7  8  9  10 11 12
-      pins: [7, 8, 9, 10, 11, 12],
-      backlight: 6,
-      rows: 2,
-      cols: 16
-    });
+  //     servin = new five.Servo({
+  //       pin: 6, 
+  //       center: true,
+  //       range: [45, 135],
+  //     }); 
 
-  servin = new five.Servo({
-    pin: 6, 
-    center: true,
-    range: [45, 135],
-  }); 
+  //   led.blink(300);
+  // });
+
+
+  
+
+  // WIFI LED BLINK
+  board.pinMode(LED_PIN, five.Pin.OUTPUT);
+  // the Led class was acting hinky, so just using Pin here
+  const pin = five.Pin(LED_PIN);
+  let value = 0;
+  setInterval(() => {
+    if (value) {
+      pin.high();
+      value = 0;
+    } else {
+      pin.low();
+      value = 1;
+    }
+  }, 500);
 
 });
+
 
 // FUNCTION 01 BLINK
 router.get('/1', (req,res,next) => {

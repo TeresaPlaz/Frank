@@ -65,12 +65,12 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 //ROUTES
-const index = require('./routes/index');
+// const index = require('./routes/index');
 const about = require('./routes/about');
 const functions = require('./routes/friki-functions');
 const auth = require( './routes/auth-routes' );
 
-app.use('/', index);
+// app.use('/', index);
 app.use('/about', about);
 app.use('/functions', functions);
 app.use( '/user', auth );
