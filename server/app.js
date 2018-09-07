@@ -65,15 +65,19 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 //ROUTES
-// const index = require('./routes/index');
+const index = require('./routes/index');
 const about = require('./routes/about');
 const functions = require('./routes/friki-functions');
 const auth = require( './routes/auth-routes' );
+const userCrud = require( './routes/user' );
 
-// app.use('/', index);
+app.use('/', index);
 app.use('/about', about);
 app.use('/functions', functions);
-app.use( '/user', auth );
+app.use( '/auth', auth );
+app.use( '/user', userCrud );
+
+
 // This will be the default route is nothing else is caught
 app.use(function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
