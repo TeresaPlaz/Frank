@@ -27,14 +27,14 @@ board.once("ready", function()
     console.log("five ready");
     led = new five.Led.RGB({pins: {green:5,red: 16,blue: 4}}); // | G-D2 => 4 | R-D1 => 5 | B-D4 => 2 |
     
-    // lcd = new five.LCD({
-    //   // LCD pin name RS EN DB4 DB5 DB6 DB7
-    //   // Arduino pin # 7  8  9  10 11 12
-    //   pins: [7, 8, 9, 10, 11, 12],
-    //   backlight: 6,
-    //   rows: 2,
-    //   cols: 16
-    // });
+    lcd = new five.LCD({
+      // LCD pin name RS EN DB4 DB5 DB6 DB7
+      // Arduino pin # 7  8  9  10 11 12
+      pins: [7, 8, 9, 10, 11, 12],
+      backlight: 6,
+      rows: 2,
+      cols: 16
+    });
 
     servin = new five.Servo({
       pin: 14,// | D5 => 14 |
@@ -43,26 +43,6 @@ board.once("ready", function()
     }); 
   });
 });
-
-const LED_PIN = 2;
-
-// BOARD
-
-  // WIFI LED BLINK
-  // board.pinMode(LED_PIN, five.Pin.OUTPUT);
-  // the Led class was acting hinky, so just using Pin here
-  // const pin = five.Led(LED_PIN);
-  // pin.blink(100);
-  // let value = 0;
-  // setInterval(() => {
-  //   if (value) {
-  //     pin.high();
-  //     value = 0;
-  //   } else {
-  //     pin.low();
-  //     value = 1;
-  //   }
-  // }, 500);
 
 // });
 

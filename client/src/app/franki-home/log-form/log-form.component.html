@@ -7,32 +7,36 @@
       elseBlock">
 <!-- FORM TO LOGIN -->
       <div class="container">
-        <form action="/users/login" method="POST">
+        <form (ngSubmit)="login()">
           <div class="form-group">
             <label for="username1">Username:</label>
-            <input class="form-control" type="text" name="username" id="username1" placeholder="Enter username">
+            <input class="form-control" type="text" name="username" id="username1" [(ngModel)]="user.username" placeholder="Enter username" required>
           </div>
           <div class="form-group">
             <label for="inputPassword2" >Password:</label>
-            <input type="password" class="form-control" name="password"  id="inputPassword2" placeholder="Password">
+            <input type="password" class="form-control" name="password" [(ngModel)]="user.password" id="inputPassword2" placeholder="Password" required>
           </div>
           <div>
             <input type="submit" value="Log In" class="btn btn-primary">
           </div>
         </form>
+
+        <div> {{error}}</div>
+
         </div>
       
 </div>
-<!-- FORM TO SINUP -->
+<!-- FORM TO SIGNUP -->
 <ng-template #elseBlock>
-  <form action="/" method="POST">
+  <form #form="ngForm" (ngSubmit)="signup()">
     <div class="form-group">
       <label for="username">Username</label>
-      <input id="username" class="form-control" type="text" name="username" placeholder="Your username">
+      <input id="username" class="form-control" [(ngModel)]="newUser.username" type="text" name="username" placeholder="Your username">
     </div>
     <div class="form-group">
       <label for="password1">Password</label>
-      <input id="password1" type="password" class="form-control" name="password" placeholder="Your password">
+      <input id="password1" type="password" class="form-control" name="password" placeholder="Your password" [(ngModel)]="newUser.password"
+      required>
     </div>
     <div class="form-group">
       <label for="password2">Retype password:</label>
@@ -44,6 +48,7 @@
   <div class="">
   <button type="submit" class="btn btn-primary">Create account</button>
   </div>
+  <div>{{error}}</div>
   </form>
   
 </ng-template>
