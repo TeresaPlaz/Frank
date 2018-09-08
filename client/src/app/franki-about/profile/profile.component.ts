@@ -1,3 +1,4 @@
+import { AuthLogService } from './../../franki-home/service/auth-log.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  user: String;
+  constructor(private authControlLog: AuthLogService) { }
 
   ngOnInit() {
+    this.authControlLog.getUser().subscribe((user) => {
+      this.user = user;
+    });
   }
 
 }

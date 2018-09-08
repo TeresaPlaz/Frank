@@ -11,6 +11,8 @@ a {
 }
 
 video {
+  position: absolute;
   border: none;
   overflow: hidden; 
+  z-index: 100;
 }
