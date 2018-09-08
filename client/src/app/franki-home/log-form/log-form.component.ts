@@ -10,6 +10,11 @@ import { Router } from '@angular/router';
 })
 export class LogFormComponent implements OnInit
 {
+  newUser = {
+    username: '',
+    password: '',
+    password2: ''
+  }
   
   user = {
     username: '',
@@ -59,7 +64,7 @@ export class LogFormComponent implements OnInit
   }
 
   signup(){
-    this.authControlLog.signup(this.user)
+    this.authControlLog.signup(this.newUser)
       .subscribe(
         user => {
           this.router.navigate(['functions'])

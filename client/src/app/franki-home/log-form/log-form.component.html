@@ -21,7 +21,7 @@
     
 
 <div *ngIf="isSgnUpDisabled">
-   <!-- FORM TO SINUP -->
+   <!-- FORM TO SIGNUP -->
    <form #form="ngForm" (ngSubmit)="signup()">
       <div class="form-group">
         <label for="username">Username</label>
@@ -36,7 +36,7 @@
       </div>
       <div class="form-group">
         <label for="password1">Password</label>
-        <input id="password1" type="password" class="form-control" name="password" placeholder="Your password">
+        <input id="password1" type="password" class="form-control" [(ngModel)]="newUser.password" name="password" placeholder="Your password" required>
       </div>
       <div class="form-group">
         <label for="password2">Retype password:</label>
@@ -47,7 +47,7 @@
           name="password2" 
           aria-describedby="passwordHelp" 
           placeholder="Don't leave it to chance" 
-          [(ngModel)]="newUser.password"
+          [(ngModel)]="newUser.password2"
           required>
       </div>
       <div>
