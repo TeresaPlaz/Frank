@@ -1,19 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<div class="ui three item menu">
-  <a class="active item" [routerLink]="['/home']">
+<div class="ui four item massive borderless menu">
+   <!-- inverted -->
+  <a class="item" [routerLink]="['/home']">
     Home
   </a>
-  <a class="item active" [routerLink]="['/functions']">
+  <a class="item" [routerLink]="['/functions']">
    Functions
   </a>
   <a class="item" [routerLink]="['/about']">
    About
   </a>
-  <div class="right menu">
-    <a class="ui item" [routerLink]="['/']" (click)="logout()">
-      Logout
-    </a>
-  </div>
+
+  <a *ngIf="isLoggedin()" class="item" [routerLink]="['/']" (click)="logout()">
+    Logout
+  </a>
 </div>
   <router-outlet></router-outlet>
