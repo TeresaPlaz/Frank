@@ -1,15 +1,22 @@
 .logForm{
+  position: fixed;
   text-align: center;
-  padding-left: 38%;
-  padding-right: 38%;
-  /* margin: auto auto; */
+  padding-left: 38.5%;
+  /* padding-right: 38%;  */
+  margin-top: 10%;
+  /* // margin: auto auto; */
 }
 .forms{
-  text-align: left;
+  /* text-align: left; */
   width: 300px;
   margin-top: 50px;
 }
 .bordered {
-  border: 1px solid rgb(88, 180, 241);
+  color: white;
+  /* border: 2px solid white; */
+  /* rgb(88, 180, 241); */
   background-color: rgb(202, 199, 199);
+}
+.logForm button{
+  margin: 0 5%; 
 }

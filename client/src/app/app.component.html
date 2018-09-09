@@ -1,19 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
-
-<div class="ui four item massive borderless menu">
-   <!-- inverted -->
-  <a class="item" [routerLink]="['/home']">
-    Home
-  </a>
-  <a class="item" [routerLink]="['/functions']">
-   Functions
-  </a>
-  <a class="item" [routerLink]="['/about']">
-   About
-  </a>
- 
-  <a *ngIf="isLoggedin2" class="item" [routerLink]="['/']" (click)="logout()">
-    Logout
-  </a>
+<div class="main">
+    <div class="ui four item massive top fixed pointing borderless inverted secondary menu">
+        <!-- inverted -->
+       <a class="item" [routerLink]="['/home']">
+         Home
+       </a>
+       <a class="item" [routerLink]="['/functions']">
+        Functions
+       </a>
+       <a class="item" [routerLink]="['/about']">
+        About
+       </a>
+       <a *ngIf="isLoggedin2" class="item" [routerLink]="['/']" (click)="logout()">
+        Logout
+      </a>
+     </div>
+       <router-outlet></router-outlet>
 </div>
-  <router-outlet></router-outlet>
