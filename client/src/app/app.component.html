@@ -1,23 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<div class="ui secondary pointing menu">
+<div class="ui three item menu">
   <a class="active item" [routerLink]="['/home']">
     Home
   </a>
-  <a class="item" [routerLink]="['/functions']">
+  <a class="item active" [routerLink]="['/functions']">
    Functions
   </a>
   <a class="item" [routerLink]="['/about']">
    About
   </a>
   <div class="right menu">
-    <a class="ui item" (click)="logout()">
+    <a class="ui item" [routerLink]="['/']" (click)="logout()">
       Logout
     </a>
   </div>
 </div>
-<div class="ui segment">
-  <p></p>
-</div>
-  
   <router-outlet></router-outlet>
