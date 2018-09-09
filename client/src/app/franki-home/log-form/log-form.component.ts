@@ -21,11 +21,7 @@ export class LogFormComponent implements OnInit
     password: ''
   };
 
-  isSgnUpDisabled: Boolean = false;
-  isLogInDisabled: Boolean = false;
-  color: Boolean = false;
-  isActiveSignup = true;
-  isActiveLogin = true;
+  
   error: String;
 
   constructor(private authControlLog: AuthLogService, private router: Router) { }
@@ -75,6 +71,12 @@ export class LogFormComponent implements OnInit
         }
       )
   }
+
+  isSgnUpDisabled: Boolean = false;
+  isLogInDisabled: Boolean = false;
+  color: Boolean = false;
+  isActiveSignup = true;
+  isActiveLogin = true;
 
   toggleInput(INorUP) {
     if(INorUP === "up"){
