@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { AuthLogService } from './franki-home/service/auth-log.service';
 import { Router } from '@angular/router';
 
@@ -8,15 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 } )
   
-export class AppComponent implements OnInit {
-    constructor(private authControlLog: AuthLogService,  private router: Router) {}
+export class AppComponent implements DoCheck {
+  constructor(private authControlLog: AuthLogService,  private router: Router) {}
 
-    ngOnInit() {
-        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-        //Add 'implements OnInit' to the class.
-
-    }
-     isLoggedIn2 = this.authControlLog.isLoggedIn().subscribe(user => { return ; }, err => { console.error(err) });
+  isLoggedIn2 = this.authControlLog.isLoggedIn().subscribe(user => { return ; }, err => { console.error(err) });
+  inverted: Boolean;
 
   logout ()
   {
@@ -25,5 +21,17 @@ export class AppComponent implements OnInit {
       res => this.router.navigate(['home'])
     )
   }
+  ngDoCheck() {
+    //Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check.
+    //Add 'implements DoCheck' to the class.
+    // console.log(this.router.url);
+    if(this.router.url === '/'){
+      this.inverted = true;
+    }
+    else{
+      this.inverted = false;
+    }
+  }
   
+
 }

@@ -1,3 +1,35 @@
 .pusher {
   margin-top: 5%;
 }
+.buybtn {
+  float: left;
+  position: relative;
+  top: 0;
+  cursor: pointer;
+  border: 1px solid rgb(170, 170, 170);
+  border-radius: 7px;
+  margin: 50px 50px 20px 0;
+  padding: 8px 0px;
+  text-align: center;
+   /* Smoothing out hover using css3 transitions, if not, the pressed button effect looks a bit hard */
+  transition: all 0.4s ease;
+   /* Size */
+  line-height: 25px;
+  width: 150px;
+  height: 45px;
+  font-size: 100%;
+  font-size: 18px;
+   /* Colors */
+  background: white;
+  box-shadow: 0 1px rgba(0, 0, 0, 0.2);
+  color: rgb(54, 134, 141);
+}
+.buybtn:hover {
+  background: rgb(54, 134, 141);
+  box-shadow: 0 2px rgb(170, 170, 170);
+  color: white;
+}
+ .buybtn:active {
+  top: 3px;
+  box-shadow: none;
+}
