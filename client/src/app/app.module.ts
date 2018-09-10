@@ -18,7 +18,7 @@ import { FrankiFunctionsComponent } from './franki-functions/franki-functions.co
     FrankiHomeComponent,
     FrankiAboutComponent,
     LogFormComponent,
-    FrankiFunctionsComponent,
+    FrankiFunctionsComponent
   ],
   imports: [
     BrowserModule,
