@@ -8,7 +8,7 @@ import { AuthLogService } from './../franki-home/service/auth-log.service';
 })
 export class FrankiAboutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authControlLog: AuthLogService) { }
 
   ngOnInit() {
   }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthLogService } from './../franki-home/service/auth-log.service';
+
 
 @Component({
   selector: 'app-franki-functions',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FrankiFunctionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authControlLog: AuthLogService) { }
 
   ngOnInit() {
   }
 
+  test ()
+  {
+    this.authControlLog.blink();
+  }
 }

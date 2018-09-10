@@ -44,7 +44,6 @@ board.once("ready", function()
     console.log("five ready");
     led = new five.Led.RGB({pins: {green:5,red: 16,blue: 4}}); // | R-D1 => 5 | G-D0 => 16 | B-D2 => 4 |
     
-<<<<<<< Updated upstream
     lcd = new five.LCD({
       // LCD pin name RS EN DB4 DB5 DB6 DB7
       // Arduino pin # 7  8  9  10 11 12
@@ -65,11 +64,6 @@ board.once("ready", function()
 // });
 
 
-=======
-  });
-});
-
->>>>>>> Stashed changes
 // FUNCTION 01 BLINK
 router.get('/1', (req,res,next) => {
   led.blink(300);

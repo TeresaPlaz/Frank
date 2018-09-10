@@ -18,7 +18,7 @@ export class AppComponent implements DoCheck {
   {
     this.authControlLog.logout()
     .subscribe(
-      res => this.router.navigate(['home'])
+      res => this.router.navigate(['/'])
     )
   }
   ngDoCheck() {

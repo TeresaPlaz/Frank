@@ -51,8 +51,12 @@ export class AuthLogService
 
 //LOGOUT
  logout() {
-    return this.http.get(`${environment.BASE_URL}/auth/logout`, { withCredentials: true }) .pipe(map(res => res.json()), catchError(this.handleError));
+    return this.http.post(`${environment.BASE_URL}/auth/logout`, { withCredentials: true }) .pipe(map(res => res.json()), catchError(this.handleError));
 }
 
-
+//BLINK
+  blink ()
+  {
+    return this.http.get( `${environment.BASE_URL}/functions/1`).pipe(map(res => res.json()),catchError(this.handleError));
+  };
 }
