@@ -40,7 +40,9 @@ export class LogFormComponent implements OnInit
   }
 
 
-  login(){
+  login ()
+  {
+    console.log( this.user );
     this.authControlLog.login(this.user)
       .subscribe(
         user => {
@@ -59,7 +61,9 @@ export class LogFormComponent implements OnInit
       )
   }
 
-  signup(){
+  signup ()
+  {
+    console.log( this.newUser );
     this.authControlLog.signup(this.newUser)
       .subscribe(
         user => {

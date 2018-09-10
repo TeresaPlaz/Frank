@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthLogService } from './franki-home/service/auth-log.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { AuthLogService } from './franki-home/service/auth-log.service';
 } )
   
 export class AppComponent implements OnInit {
-    constructor(private authControlLog: AuthLogService) {}
+    constructor(private authControlLog: AuthLogService,  private router: Router) {}
 
     ngOnInit() {
         //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -16,4 +17,13 @@ export class AppComponent implements OnInit {
 
     }
      isLoggedIn2 = this.authControlLog.isLoggedIn().subscribe(user => { return ; }, err => { console.error(err) });
+
+  logout ()
+  {
+    this.authControlLog.logout()
+    .subscribe(
+      res => this.router.navigate(['home'])
+    )
+  }
+  
 }
