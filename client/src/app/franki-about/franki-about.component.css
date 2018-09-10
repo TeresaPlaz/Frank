@@ -2,20 +2,17 @@
   margin-top: 5%;
 }
 .buybtn {
-  float: left;
-  position: relative;
   top: 0;
   cursor: pointer;
   border: 1px solid rgb(170, 170, 170);
   border-radius: 7px;
-  margin: 50px 50px 20px 0;
+  margin: 8% 0 8% 7%;
   padding: 8px 0px;
-  text-align: center;
    /* Smoothing out hover using css3 transitions, if not, the pressed button effect looks a bit hard */
   transition: all 0.4s ease;
    /* Size */
   line-height: 25px;
-  width: 150px;
+  width: 40%;
   height: 45px;
   font-size: 100%;
   font-size: 18px;
