@@ -24,7 +24,12 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
-    "serve-favicon": "~2.4.5"
+    "serve-favicon": "~2.4.5",
+    "connect-ensure-login": "^0.1.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.1",
+    "debug": "~2.6.9",
+    "http-errors": "~1.6.2"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
