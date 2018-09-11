@@ -11,9 +11,9 @@
        <a class="item" [routerLink]="['/about']">
         About
        </a>
-       <!-- <a *ngIf="isLoggedin2" class="item" (click)="logout()">
+       <a *ngIf="user" class="item" (click)="logout()">
         Logout
-      </a> -->
+      </a>
      </div>
        <router-outlet></router-outlet>
 </div>

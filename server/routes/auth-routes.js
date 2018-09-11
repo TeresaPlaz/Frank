@@ -73,6 +73,7 @@ authRoutes.post('/signup', (req, res, next) => {
 
   authRoutes.post('/logout', (req, res, next) => {
     req.logout();
+    req.session.destroy();
     res.status(200).json({ message: 'Success' });
   });
 

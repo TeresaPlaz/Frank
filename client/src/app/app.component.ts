@@ -8,22 +8,45 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 } )
   
-export class AppComponent implements OnChanges {
+export class AppComponent implements OnChanges{
   constructor(private authControlLog: AuthLogService,  private router: Router) {}
 
-  isLoggedIn2 = this.authControlLog.isLoggedIn().subscribe(user => { return ; }, err => { console.error(err) });
   inverted: Boolean;
+  user: String;
 
   logout ()
   {
     this.authControlLog.logout().subscribe(
-      res => this.router.navigate(['/'])
+      user => {
+        this.authControlLog.globalUser = '';
+        this.router.navigate(['/'])
+      },
+      err => {
+        console.error(err);
+      }
     )
   }
-  ngOnChanges() {
+  ngOnInit() {
+    
+      this.authControlLog.getUser().subscribe(user => { 
+        this.authControlLog.globalUser = user.username ;
+        return user; 
+      }, err => { console.error(err) });
+  }
+
+  ngOnChanges(): void {
+    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+    //Add '${implements OnChanges}' to the class.
+    this.authControlLog.getUser().subscribe(user => { 
+      this.authControlLog.globalUser = user.username ;
+      this.user = this.authControlLog.globalUser;
+      return user; 
+    }, err => { console.error(err) });
+  }
+  
+  ngDoCheck() {
     //Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check.
     //Add 'implements DoCheck' to the class.
-    // console.log(this.router.url);
     if(this.router.url === '/'){
       this.inverted = true;
     }
@@ -33,4 +56,4 @@ export class AppComponent implements OnChanges {
   }
   
 
-}
+} 

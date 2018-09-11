@@ -7,16 +7,16 @@ import { Router } from '@angular/router';
   templateUrl: './franki-about.component.html',
   styleUrls: ['./franki-about.component.css']
 })
-export class FrankiAboutComponent implements OnInit {
+export class FrankiAboutComponent {
 
-  user: String;
+  
   constructor(private authControlLog: AuthLogService, private router: Router) { }
-
+  user: String = this.authControlLog.globalUser;
   error: String;
 
   ngOnInit() {
     // this.authControlLog.getUser().subscribe((user) => {
-    //   this.user = user;
+      this.user = this.authControlLog.globalUser;
     // });
   }
   

@@ -9,7 +9,7 @@ import { environment } from '../../../environments/environment'
 })
 export class AuthLogService
 {
-
+  globalUser: String;
   constructor ( private http: Http ) { }
 
   // ABOUT (PROFILE)

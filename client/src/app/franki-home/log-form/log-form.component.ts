@@ -53,12 +53,12 @@ export class LogFormComponent implements OnInit
       )
   }
 
-  LogOut() {
-    this.authControlLog.logout()
-      .subscribe(
-        res => this.router.navigate(['home'])
-      )
-  }
+  // LogOut() {
+  //   this.authControlLog.logout()
+  //     .subscribe(
+  //       res => this.router.navigate(['home'])
+  //     )
+  // }
 
   signup ()
   {
