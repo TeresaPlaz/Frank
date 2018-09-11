@@ -11,7 +11,7 @@ const cors         = require('cors');
 const session      = require('express-session');
 const passport     = require('passport');
 const hbs          = require('hbs');
-
+const MongoStore   = require('connect-mongo')(session);
 
 
 
@@ -36,11 +36,16 @@ app.use(session({
   secret: 'angular auth passport',
   resave: true,
   saveUninitialized: true,
+  store: new MongoStore( { mongooseConnection: mongoose.connection }),
   cookie : { httpOnly: true, maxAge: 2419200000 }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  credentials: true,
+  origin: ["http://localhost:4200"]
+ }));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -57,7 +62,17 @@ app.use(require('node-sass-middleware')({
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-
+app.use(
+  (req, res, next) => {
+    res.header('Access-Control-Allow-Credential', true);
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+    if ('OPTIONS' == req.method) {
+      res.send(200);
+    } else {
+      next();
+    }
+  }
+ );
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
@@ -73,7 +88,7 @@ const userCrud = require( './routes/user' );
 
 // app.use('/', index);
 app.use('/about', about);
-app.use('/functions', functions);
+app.use('/fun', functions);
 app.use( '/auth', auth );
 app.use( '/user', userCrud );
 
@@ -82,4 +97,6 @@ app.use( '/user', userCrud );
 app.use(function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
+
+
 module.exports = app;

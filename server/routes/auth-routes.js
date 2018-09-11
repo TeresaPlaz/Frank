@@ -79,7 +79,7 @@ authRoutes.post('/signup', (req, res, next) => {
   authRoutes.get('/loggedin', (req, res, next) => {
     if (req.isAuthenticated()) {
       res.status(200).json(req.user);
-      return true;
+      return;
     }
     res.status(403).json({ message: 'Unauthorized' });
   });
