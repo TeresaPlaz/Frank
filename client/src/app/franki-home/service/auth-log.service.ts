@@ -14,19 +14,19 @@ export class AuthLogService
 
   // ABOUT (PROFILE)
   getUser() {
-    return this.http.get(`${environment.BASE_URL}/user/profile`)
+    return this.http.get(`${environment.BASE_URL}/user/profile`, { withCredentials:true })
       .pipe(map((res) => res.json()));
   }
 
   // EDIT
   editUser(newUser) {
-    return this.http.put( `${environment.BASE_URL}/user/edit`, newUser )
+    return this.http.put( `${environment.BASE_URL}/user/edit`, newUser, { withCredentials:true } )
       .pipe(map((res) => res.json()));
   }
 
   //DELETE
   removeUser() {
-    return this.http.delete(`${environment.BASE_URL}/user/delete`)
+    return this.http.delete(`${environment.BASE_URL}/user/delete`, { withCredentials:true })
       .pipe(map((res) => res.json()));
   }
 
@@ -37,26 +37,26 @@ export class AuthLogService
 
 //SIGNUP
  signup(user) {
-    return this.http.post(`${environment.BASE_URL}/auth/signup`, user). pipe(map(res => res.json()), catchError(this.handleError));
+    return this.http.post(`${environment.BASE_URL}/auth/signup`, user, { withCredentials:true }). pipe(map(res => res.json()), catchError(this.handleError));
 };
 
 //LOGIN
   login(user) {
-    return this.http.post(`${environment.BASE_URL}/auth/login`, user, { withCredentials:true }) .pipe(map(res => res.json()), catchError(this.handleError));
+    return this.http.post(`${environment.BASE_URL}/auth/login`, user, { withCredentials:true }).pipe(map(res => res.json()), catchError(this.handleError));
 };
 
  isLoggedIn() {
-   return this.http.get( `${environment.BASE_URL}/auth/loggedin`, { withCredentials: true } ).pipe(map(res => res.json()),catchError(this.handleError));
+   return this.http.get( `${environment.BASE_URL}/auth/loggedin`, { withCredentials:true }).pipe(map(res => res.json()),catchError(this.handleError));
 };
 
 //LOGOUT
  logout() {
-    return this.http.post(`${environment.BASE_URL}/auth/logout`, { withCredentials: true }) .pipe(map(res => res.json()), catchError(this.handleError));
+    return this.http.post(`${environment.BASE_URL}/auth/logout`, { withCredentials: true }).pipe(map(res => res.json()), catchError(this.handleError));
 }
 
 //BLINK
-  blink ()
+  blink()
   {
-    return this.http.get( `${environment.BASE_URL}/functions/1`).pipe(map(res => res.json()),catchError(this.handleError));
+    return this.http.get(`${environment.BASE_URL}/fun/1`, { withCredentials:true }).pipe(map(res => res.json()), catchError(this.handleError));
   };
 }

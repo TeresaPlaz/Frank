@@ -14,7 +14,7 @@ export class FrankiFunctionsComponent implements OnInit {
   ngOnInit() {
   }
 
-  test ()
+  blinkBtn()
   {
     this.authControlLog.blink();
   }
