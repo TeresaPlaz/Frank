@@ -46,7 +46,9 @@ export class FrankiAboutComponent {
 
   deleteBtn(){
     this.authControlLog.removeUser().subscribe(
-      user => {
+      user =>
+      {
+        this.authControlLog.globalUser = '';
         this.router.navigate(['/'])
       },
       err => {

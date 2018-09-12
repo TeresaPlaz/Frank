@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 } )
   
-export class AppComponent implements OnChanges{
+export class AppComponent {
   constructor(private authControlLog: AuthLogService,  private router: Router) {}
 
   inverted: Boolean;
@@ -35,7 +35,7 @@ export class AppComponent implements OnChanges{
       // }, err => { console.error(err) });
   }
 
-  ngOnChanges(): void {
+  ngAfterContentInit(): void {
     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
     //Add '${implements OnChanges}' to the class.
     this.authControlLog.getUser().subscribe(user => { 
