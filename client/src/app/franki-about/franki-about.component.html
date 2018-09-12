@@ -1,5 +1,5 @@
 
-  <!-- Page Contents -->
+  <!-- PAGE CONTENTS -->
   <div class="pusher">
       
     
@@ -7,27 +7,86 @@
         <div class="ui middle aligned stackable grid container">
           <div class="row">
 
-            <!-- Profile -->
-
-            <div class="six wide column">
+            <!-- PROFILE -->
+            <div *ngIf="!isEditing" class="six wide column">
                 <div class="ui medium centered card">
                   <div class="image">
                     <img src="https://cdn3.iconfinder.com/data/icons/robots-3/64/_friendly_female_robot-512.png">
                   </div>
                   <div *ngIf="user" class="content">
-                    <a class="header">{{user}}</a>
+                    <p class="header">{{user}}</p>
                   </div>
                 </div>
               
 
                   <!-- Buttons -->
                       <div class="centered aligned column">
-                        <a class="ui huge button buybtn">Edit</a>
+                        <a class="ui huge button buybtn"
+                            (click)="editForm(user)"
+                          >Edit
+                        </a>
                         <a class="ui huge button buybtn" (click)="deleteBtn()">Delete</a>
                       </div>          
             </div>
+            
+            <!-- EDIT FORM -->
+            <div *ngIf="isEditing" class="ui middle aligned center aligned grid">
+                <!-- <div class="ui middle aligned center aligned grid"> -->
+                    <div class="column">
+                      <h2 class="ui teal image header">
+                      </h2>
+                <form class="ui large form" #form="ngForm" (ngSubmit)="editBtn()">
+                    <div class="ui stacked segment">
+                        <div class="field">
+                          <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input 
+                              id="username" 
+                              class="form-control" 
+                              type="text" 
+                              name="username" 
+                              [(ngModel)]="newUser.username" 
+                              placeholder="{{user}}" 
+                              required>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input 
+                          id="password1" 
+                          type="password" 
+                          class="form-control" 
+                          [(ngModel)]="newUser.password" 
+                          name="password" 
+                          placeholder="New password" 
+                          required>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input 
+                          id="password2" 
+                          type="password" 
+                          class="form-control" 
+                          name="password2" 
+                          aria-describedby="passwordHelp" 
+                          placeholder="Repeat new password" 
+                          [(ngModel)]="newUser.password2"
+                          required>
+                      </div>
+                    </div>
+                    <input type="submit" class="ui fluid large blue submit button" value="Update">
+                  </div>
+                  <div class="ui error message"></div>
+                  </form>
+                <div>{{error}}</div>
+              </div>
+              <!-- </div> -->
+            </div>
 
-            <!-- Arduino image -->
+            <!-- ARDUINO IMAGE -->
             <div class="six wide right floated column">
               <img src="https://www.freeiconspng.com/uploads/arduino-icon-5.png" class="ui large rounded image">
             </div>

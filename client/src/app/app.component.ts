@@ -28,10 +28,11 @@ export class AppComponent implements OnChanges{
   }
   ngOnInit() {
     
-      this.authControlLog.getUser().subscribe(user => { 
-        this.authControlLog.globalUser = user.username ;
-        return user; 
-      }, err => { console.error(err) });
+      // this.authControlLog.getUser().subscribe(user => { 
+      //   this.authControlLog.globalUser = user.username ;
+        this.user = this.authControlLog.globalUser;
+      //   return user; 
+      // }, err => { console.error(err) });
   }
 
   ngOnChanges(): void {

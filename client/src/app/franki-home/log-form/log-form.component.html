@@ -1,19 +1,22 @@
 <div class="logForm">
-    <button
-    class="ui inverted primary basic button"
-    [ngClass]="{ bordered: color }"
-    [disabled]="isLogInDisabled"
-    (click)="toggleInput('in'); changeBorder()"
-    [style.backgroundColor]="!isActiveLogin ? 'rgb(88, 180, 241)' : 'rgb(202, 199, 199)'"
-  >Login
-  </button>
-  <button
-    class="ui inverted primary basic button"
-    [ngClass]="{ bordered: color }"
-    [disabled]="isSgnUpDisabled"
-    (click)="toggleInput('up'); changeBorder()"
-    [style.backgroundColor]="!isActiveSignup ? 'rgb(88, 180, 241)' : 'rgb(202, 199, 199)'"
-  >Signup</button>  
+  <!-- <div *ngIf="!globalUser"> -->
+      <button
+        class="ui inverted primary basic button"
+        [ngClass]="{ bordered: color }"
+        [disabled]="isLogInDisabled"
+        (click)="toggleInput('in'); changeBorder()"
+        [style.backgroundColor]="!isActiveLogin ? 'rgb(88, 180, 241)' : 'rgb(202, 199, 199)'"
+      >Login
+      </button>
+      <button
+        class="ui inverted primary basic button"
+        [ngClass]="{ bordered: color }"
+        [disabled]="isSgnUpDisabled"
+        (click)="toggleInput('up'); changeBorder()"
+        [style.backgroundColor]="!isActiveSignup ? 'rgb(88, 180, 241)' : 'rgb(202, 199, 199)'"
+      >Signup
+      </button>    
+  <!-- </div> -->
     
   <div class="forms">
       <div *ngIf="isSgnUpDisabled">
@@ -22,54 +25,74 @@
             <div class="column">
               <h2 class="ui teal image header">
               </h2>
-        <form class="ui large form" #form="ngForm" (ngSubmit)="signup()">
+          <form class="ui large form" #form="ngForm" (ngSubmit)="signup()">
             <div class="ui stacked segment">
                 <div class="field">
                   <div class="ui left icon input">
                     <i class="user icon"></i>
-              <input 
-                id="username" 
-                class="form-control" 
-                type="text" 
-                name="username" 
-                [(ngModel)]="newUser.username" 
-                placeholder="Your username" 
-                required>
-              </div>
+                    <input 
+                      id="username" 
+                      class="form-control" 
+                      type="text" 
+                      name="username" 
+                      [(ngModel)]="newUser.username" 
+                      #myName="ngModel"
+                      minlength="2"
+                      placeholder="Your username"
+                      required>
+                      <div
+                          class="error"
+                          *ngIf="!myName.valid && (myName.dirty || myName.touched)">
+                          <div *ngIf="myName.errors.required">
+                              <!-- [hidden]="!myPerson.errors" -->
+                              The [Person] field is required.
+                          </div>
+                          <div *ngIf="myName.errors.minlength">
+                              Name must be at least
+                              {{myName.username.errors.minlength.requiredLength}}
+                              characters long.
+                          </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui left icon input">
+                    <i class="lock icon"></i>
+                    <input 
+                      id="password1" 
+                      type="password" 
+                      class="form-control" 
+                      [(ngModel)]="newUser.password" 
+                      name="password" 
+                      #myPassword="ngModel"
+                      placeholder="Your password" 
+                      required>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui left icon input">
+                    <i class="lock icon"></i>
+                  <input 
+                    id="password2" 
+                    type="password" 
+                    class="form-control" 
+                    name="password2" 
+                    aria-describedby="passwordHelp" 
+                    placeholder="Repeat password" 
+                    [(ngModel)]="newUser.password2"
+                    required>
+                  </div>
+                </div>
+                <input 
+                  type="submit" 
+                  class="ui fluid large blue submit button" 
+                  value="Sign Up"
+                  [disabled]="!form.valid">
             </div>
-            <div class="field">
-              <div class="ui left icon input">
-                <i class="lock icon"></i>
-              <input 
-                id="password1" 
-                type="password" 
-                class="form-control" 
-                [(ngModel)]="newUser.password" 
-                name="password" 
-                placeholder="Your password" 
-                required>
-              </div>
-            </div>
-            <div class="field">
-              <div class="ui left icon input">
-                <i class="lock icon"></i>
-              <input 
-                id="password2" 
-                type="password" 
-                class="form-control" 
-                name="password2" 
-                aria-describedby="passwordHelp" 
-                placeholder="Repeat password" 
-                [(ngModel)]="newUser.password2"
-                required>
-              </div>
-            </div>
-            <input type="submit" class="ui fluid large blue submit button" value="Sign Up">
-          </div>
-          <div class="ui error message"></div>
+            <div class="ui error message"></div>
           </form>
-        <div>{{error}}</div>
-      </div>
+          <div>{{error}}</div>
+        </div>
       </div>
       </div>
 

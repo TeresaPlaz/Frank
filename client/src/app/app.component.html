@@ -12,7 +12,7 @@
         About
        </a>
        <a *ngIf="user" class="item" (click)="logout()">
-        Logout
+        Logout - {{user}}
       </a>
      </div>
        <router-outlet></router-outlet>

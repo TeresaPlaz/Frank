@@ -37,11 +37,15 @@ export class AuthLogService
 
 //SIGNUP
  signup(user) {
+    this.globalUser = user.username;
+    console.log(this.globalUser);
     return this.http.post(`${environment.BASE_URL}/auth/signup`, user, { withCredentials:true }). pipe(map(res => res.json()), catchError(this.handleError));
 };
 
 //LOGIN
   login(user) {
+    this.globalUser = user.username;
+    console.log(this.globalUser);
     return this.http.post(`${environment.BASE_URL}/auth/login`, user, { withCredentials:true }).pipe(map(res => res.json()), catchError(this.handleError));
 };
 
@@ -51,6 +55,8 @@ export class AuthLogService
 
 //LOGOUT
  logout() {
+    this.globalUser = "";
+    console.log(this.globalUser);
     return this.http.post(`${environment.BASE_URL}/auth/logout`, { withCredentials: true }).pipe(map(res => res.json()), catchError(this.handleError));
 }
 

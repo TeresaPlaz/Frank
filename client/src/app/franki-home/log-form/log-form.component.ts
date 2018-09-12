@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-log-form',
   templateUrl: './log-form.component.html',
-  styleUrls: ['./log-form.component.css']
+  styleUrls: ['./log-form.component.css'],
+  // providers: [AuthLogService]
 })
 export class LogFormComponent implements OnInit
 {
