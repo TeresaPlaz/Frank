@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./log-form.component.css'],
   // providers: [AuthLogService]
 })
-export class LogFormComponent implements OnInit
+export class LogFormComponent
 {
   newUser = {
     username: '',
@@ -26,26 +26,15 @@ export class LogFormComponent implements OnInit
 
   constructor(private authControlLog: AuthLogService, private router: Router) { }
 
-  ngOnInit ()
-  {
-    this.authControlLog.isLoggedIn()
-    .subscribe(
-      user => {
-        return ;
-      },
-      err => {
-        console.error(err)
-      }
-    )
-  }
-
 
   login ()
   {
     // console.log( this.user );
     this.authControlLog.login(this.user)
       .subscribe(
-        user => {
+      user =>
+      {
+        this.authControlLog.globalUser = user;
           this.router.navigate(['functions'])
         },
         err => {
@@ -53,13 +42,6 @@ export class LogFormComponent implements OnInit
         }
       )
   }
-
-  // LogOut() {
-  //   this.authControlLog.logout()
-  //     .subscribe(
-  //       res => this.router.navigate(['home'])
-  //     )
-  // }
 
   signup ()
   {

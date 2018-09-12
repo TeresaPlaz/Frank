@@ -1,4 +1,4 @@
-import { Component, OnChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthLogService } from './franki-home/service/auth-log.service';
 import { Router } from '@angular/router';
 
@@ -11,48 +11,48 @@ import { Router } from '@angular/router';
 export class AppComponent {
   constructor(private authControlLog: AuthLogService,  private router: Router) {}
 
-  inverted: Boolean;
-  user: String;
+  NavID: Boolean;
+  NavID2: Boolean;
 
   logout ()
   {
     this.authControlLog.logout().subscribe(
-      user => {
+      user =>
+      {
         this.authControlLog.globalUser = '';
-        this.router.navigate(['/'])
+        this.router.navigate( [ '/' ] );
       },
       err => {
         console.error(err);
       }
     )
   }
-  ngOnInit() {
-    
-      // this.authControlLog.getUser().subscribe(user => { 
-      //   this.authControlLog.globalUser = user.username ;
-        this.user = this.authControlLog.globalUser;
-      //   return user; 
-      // }, err => { console.error(err) });
-  }
 
-  ngAfterContentInit(): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
-    this.authControlLog.getUser().subscribe(user => { 
-      this.authControlLog.globalUser = user.username ;
-      this.user = this.authControlLog.globalUser;
-      return user; 
-    }, err => { console.error(err) });
-  }
+  // ngOnInit() {
+    
+  //   this.authControlLog.isLoggedIn().subscribe( user =>
+  //   { 
+  //     this.authControlLog.globalUser = user.username ;
+  //     // this.user = user.username;
+  //     return user; 
+  //   }, err => { console.error(err) });
+  // }
   
   ngDoCheck() {
     //Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check.
     //Add 'implements DoCheck' to the class.
     if(this.router.url === '/'){
-      this.inverted = true;
+      this.NavID = true;
+      this.NavID2 = false;
     }
-    else{
-      this.inverted = false;
+    else if (this.router.url === '/about') 
+    {
+      this.NavID2 = true;
+      this.NavID = false;
+    }
+    else {
+      this.NavID2 = false
+      this.NavID = false;
     }
   }
   

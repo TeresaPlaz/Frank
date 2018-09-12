@@ -1,5 +1,5 @@
 import { AuthLogService } from './../franki-home/service/auth-log.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,21 +9,16 @@ import { Router } from '@angular/router';
 })
 export class FrankiAboutComponent {
 
-  newUser = {
+  newInfo = {
     username: '',
     password: '',
     password2: ''
   }
   
   constructor(private authControlLog: AuthLogService, private router: Router) { }
-  user: String;
   error: String;
 
-  ngOnInit() {
-    // this.authControlLog.getUser().subscribe((user) => {
-      this.user = this.authControlLog.globalUser;
-    // });
-  }
+  ngOnInit() {  }
 
   isEditing: Boolean = false;
 
@@ -34,8 +29,9 @@ export class FrankiAboutComponent {
 
   editBtn(){
     this.isEditing = false;
-    this.authControlLog.editUser(this.newUser).subscribe(
-      user => {
+    this.authControlLog.editUser(this.newInfo).subscribe(
+      user =>
+      {
         this.router.navigate(['/about'])
       },
       err => {

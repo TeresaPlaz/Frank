@@ -3,6 +3,10 @@
   color: black;
 }
 
+.backGround {
+  background-color: #E21805;
+}
+
 .buybtn {
   position: relative;
   top: 0;

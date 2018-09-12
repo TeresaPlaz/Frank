@@ -7,6 +7,13 @@ const User       = require('../models/User');
 
 const authRoutes = express.Router();
 
+authRoutes.post( '/logout', ( req, res, next ) =>
+{
+  req.logout();
+  req.session.destroy();
+    res.status(200).json({ message: 'Success' });
+  });
+
 authRoutes.post('/signup', (req, res, next) => {
     const {username, password} = req.body;
   
@@ -64,17 +71,10 @@ authRoutes.post('/signup', (req, res, next) => {
           res.status(500).json({ message: 'Something went wrong' });
           return;
         }
-  
         // We are now logged in (notice req.user)
         res.status(200).json(req.user.username);
       });
     })(req, res, next);
-  });
-
-  authRoutes.post('/logout', (req, res, next) => {
-    req.logout();
-    req.session.destroy();
-    res.status(200).json({ message: 'Success' });
   });
 
   authRoutes.get('/loggedin', (req, res, next) => {
@@ -82,15 +82,6 @@ authRoutes.post('/signup', (req, res, next) => {
       res.status(200).json(req.user);
       return;
     }
-    res.status(403).json({ message: 'Unauthorized' });
-  });
-
-  authRoutes.get('/private', (req, res, next) => {
-    if (req.isAuthenticated()) {
-      res.json({ message: 'This is a private message' });
-      return;
-    }
-  
     res.status(403).json({ message: 'Unauthorized' });
   });
 

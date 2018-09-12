@@ -13,8 +13,8 @@
                   <div class="image">
                     <img src="https://cdn3.iconfinder.com/data/icons/robots-3/64/_friendly_female_robot-512.png">
                   </div>
-                  <div *ngIf="user" class="content">
-                    <p class="header">{{user}}</p>
+                  <div *ngIf="this.authControlLog.globalUser" class="content">
+                    <p class="header">{{this.authControlLog.globalUser}}</p>
                   </div>
                 </div>
               
@@ -22,7 +22,7 @@
                   <!-- BUTTONS -->
                       <div class="centered aligned column">
                         <a class="ui huge button buybtn"
-                            (click)="editForm(user)"
+                            (click)="editForm()"
                           >Edit
                         </a>
                         <a class="ui huge button buybtn" (click)="deleteBtn()">Delete</a>
@@ -34,7 +34,7 @@
                 <!-- <div class="ui middle aligned center aligned grid"> -->
                     <div class="column">
                       <h2 class="ui teal image header"></h2>
-                      <form class="ui large form" #form="ngForm" (ngSubmit)="signup()">
+                      <form class="ui large form" #form="ngForm" (ngSubmit)="editBtn()">
                           <div class="ui stacked segment editErr">
                               <div class="two field">
                                 <div field>
@@ -45,10 +45,10 @@
                                       type="text" 
                                       class="form-control" 
                                       name="username" 
-                                      [(ngModel)]="newUser.username" 
+                                      [(ngModel)]="newInfo.username" 
                                       #myName="ngModel"
                                       minlength="2" 
-                                      placeholder="{{user}}"
+                                      placeholder="{{this.authControlLog.globalUser}}"
                                       required>
                                   </div>
                                 </div>
@@ -74,7 +74,7 @@
                                       id="password1" 
                                       type="password" 
                                       class="form-control" 
-                                      [(ngModel)]="newUser.password" 
+                                      [(ngModel)]="newInfo.password" 
                                       name="password" 
                                       #myPassword="ngModel"
                                       placeholder="New password" 
@@ -95,7 +95,7 @@
                                         id="password2" 
                                         type="password" 
                                         class="form-control" 
-                                        [(ngModel)]="newUser.password2" 
+                                        [(ngModel)]="newInfo.password2" 
                                         name="password2" 
                                         #myPassword2="ngModel"
                                         placeholder="Repeat new password" 
@@ -131,7 +131,7 @@
         </div>
       </div>
     
-    
+      <!-- INSTRUCTIONS AND HARDWARE SECTION -->
       <div class="ui vertical segment">
         <div class="ui equal width stackable internally celled grid">
           <div class="center aligned row">
@@ -168,6 +168,8 @@
         </div>
       </div>
     
+
+    <!-- TECHONOLOGIES USED SECTION -->
       <div class="ui vertical stripe segment">
         <div class="ui text container">
           <h3 class="ui header centered">TECHNOLOGIES</h3>
@@ -218,14 +220,13 @@
 
       
     
-    
+    <!-- FOOTER -->
       <div class="ui inverted vertical footer segment">
         <div class="ui container">
           <div class="ui stackable inverted divided equal height stackable grid">
             <div class="three wide column">
               <h4 class="ui inverted header">About</h4>
               <div class="ui inverted link list">
-                <a href="#" class="item">Sitemap</a>
                 <a href="#" class="item">Contact Us</a>
                 <a href="#" class="item">Religious Ceremonies</a>
                 <a href="#" class="item">Gazebo Plans</a>
