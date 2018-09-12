@@ -1,8 +1,6 @@
-*{
-  color: black;
-}
 .pusher {
   margin-top: 5%;
+  color: black;
 }
 
 .buybtn {
@@ -34,4 +32,11 @@
 .buybtn:active {
   top: 3px;
   box-shadow: none;
+}
+.editErr .form-control.ng-touched.ng-invalid{
+  border: 1px solid red;
+}
+.errMsg{
+  color: red;
+  border-radius: 3px;
 }

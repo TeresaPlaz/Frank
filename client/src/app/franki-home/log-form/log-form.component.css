@@ -20,3 +20,10 @@
 .logForm button{
   margin: 0 5%; 
 }
+.signupErr .form-control.ng-touched.ng-invalid{
+  border: 1px solid red;
+}
+.errMsg{
+  color: red;
+  border-radius: 3px;
+}
