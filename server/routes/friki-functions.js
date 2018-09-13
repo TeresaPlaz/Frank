@@ -7,6 +7,12 @@ let five = require("johnny-five"), board, lcd, led, servin, running;
 // EtherPortClient INIT 
 const EtherPortClient = require('etherport-client').EtherPortClient;
 
+//WIFI PORT
+  let port = new EtherPortClient({
+    host: '192.168.43.46', //'192.168.0.16',  
+    port: 3030
+  });
+
 // let franki = new five.Board();
 // franki.on("ready", function(){
 //     lcd = new five.LCD({
@@ -24,11 +30,6 @@ const EtherPortClient = require('etherport-client').EtherPortClient;
 //       range: [45, 135]
 //     }); 
 // });
-//WIFI PORT
-  let port = new EtherPortClient({
-    host: '192.168.0.16',  
-    port: 3030
-  });
 
 //ESP8622
 board = new firmata.Board(port);
@@ -48,12 +49,10 @@ board.once("ready", function()
   });
 });
 
-// });
-
 
 // FUNCTION 01 BLINK
 router.get('/1', (req,res,next) => {
-  console.log("holi");
+  // console.log("holi");
   led.blink(300);
   res.json("Funtion1 - ON");
 });
