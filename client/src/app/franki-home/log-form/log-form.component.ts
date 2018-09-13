@@ -1,5 +1,5 @@
 import { AuthLogService } from './../service/auth-log.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -48,7 +48,9 @@ export class LogFormComponent
     // console.log( this.newUser );
     this.authControlLog.signup(this.newUser)
       .subscribe(
-        user => {
+      user =>
+      {
+        this.authControlLog.globalUser = user;
           this.router.navigate(['functions'])
         },
         err => {
