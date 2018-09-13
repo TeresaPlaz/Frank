@@ -12,6 +12,11 @@
   /* width: 300px; */
   margin-top: 50px;
 }
+.formBtn{
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 10%;
+}
 .bordered {
   color: white;
   /* border: 2px solid white; */
