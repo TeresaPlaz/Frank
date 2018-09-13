@@ -27,7 +27,9 @@ export class FrankiAboutComponent {
 
   }
 
-  editBtn(){
+  editBtn ()
+  {
+    this.authControlLog.globalUser = this.newInfo.username;
     this.isEditing = false;
     this.authControlLog.editUser(this.newInfo).subscribe(
       user =>

@@ -29,7 +29,6 @@ export class LogFormComponent
 
   login ()
   {
-    // console.log( this.user );
     this.authControlLog.login(this.user)
       .subscribe(
       user =>
