@@ -99,6 +99,32 @@ greenLED()
       withCredentials:true
     }).pipe(map(res => res.json()), catchError(this.handleError));
   };
-
-
+//TEXT LCD SCREEN
+textLCD()
+  {
+    return this.http.get(`${environment.BASE_URL}/functions/6`, {
+      withCredentials:true
+    }).pipe(map(res => res.json()), catchError(this.handleError));
+  }
+//RUNNING MAN
+runningMan()
+  {
+    return this.http.get(`${environment.BASE_URL}/functions/7`, {
+      withCredentials:true
+    }).pipe(map(res => res.json()), catchError(this.handleError));
+  }
+//SERVO ON
+servoON()
+  {
+    return this.http.get(`${environment.BASE_URL}/functions/8`, {
+      withCredentials:true
+    }).pipe(map(res => res.json()), catchError(this.handleError));
+  }
+//SERVO OFF
+servoOFF()
+  {
+    return this.http.get(`${environment.BASE_URL}/functions/9`, {
+      withCredentials:true
+    }).pipe(map(res => res.json()), catchError(this.handleError));
+  }
 }

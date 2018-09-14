@@ -8,45 +8,45 @@ let five = require("johnny-five"), board, lcd, led, servin, running;
 const EtherPortClient = require('etherport-client').EtherPortClient;
 
 //WIFI PORT
-  let port = new EtherPortClient({
-    host: '192.168.43.46', //'192.168.0.16',  
-    port: 3030
-  });
+//   let port = new EtherPortClient({
+//     host: '192.168.43.46', //'192.168.0.16',  
+//     port: 3030
+//   });
 
-// let franki = new five.Board();
-// franki.on("ready", function(){
-//     lcd = new five.LCD({
-//       // LCD pin name RS EN DB4 DB5 DB6 DB7
-//       // Arduino pin # 7  8  9  10 11 12
-//       pins: [7, 8, 9, 10, 11, 12],
-//       backlight: 6,
-//       rows: 2,
-//       cols: 16
-//     });
+//ARDUINO WIFI
+// //ESP8622
+// board = new firmata.Board(port);
+// board.once("ready", function() 
+// {
+//   console.log("ready");
+//   board.isReady = true;
 
-//     servin = new five.Servo({
-//       pin: 3,
-//       // center: true,
-//       range: [45, 135]
-//     }); 
+//   //Virtual board to access with Johnny5
+//   let Franky = new five.Board({io: board});
+//   Franky.on("ready", function()
+//   {
+//     console.log("five ready");
+//     led = new five.Led.RGB({pins: {green:5,red: 16,blue: 4}}); // | G-D1 => 5 | R-D0 => 16 | B-D2 => 4 |  
+//   });
 // });
 
-//ESP8622
-board = new firmata.Board(port);
-board.once("ready", function() 
-{
-  console.log("ready");
-  board.isReady = true;
+//ARDUINO CABLE
+let franki = new five.Board();
+franki.on("ready", function(){
+    lcd = new five.LCD({
+      // LCD pin name RS EN DB4 DB5 DB6 DB7
+      // Arduino pin # 7  8  9  10 11 12
+      pins: [7, 8, 9, 10, 11, 12],
+      backlight: 6,
+      rows: 2,
+      cols: 16
+    });
 
-  //Virtual board to access with Johnny5
-  let Franky = new five.Board({io: board});
-  Franky.on("ready", function()
-  {
-    console.log("five ready");
-    led = new five.Led.RGB({pins: {green:5,red: 16,blue: 4}}); // | G-D1 => 5 | R-D0 => 16 | B-D2 => 4 |
-    
-     
-  });
+    servin = new five.Servo({
+      pin: 3,
+      // center: true,
+      range: [45, 135]
+    }); 
 });
 
 

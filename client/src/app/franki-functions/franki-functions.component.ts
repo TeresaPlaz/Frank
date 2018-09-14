@@ -67,4 +67,39 @@ export class FrankiFunctionsComponent {
     })
   }
   
+  textLCD(){
+    this.authControlLog.textLCD().subscribe( user => {
+      console.log("Function => textLCD()");
+    },
+    err => {
+      this.error = err;
+    })
+  }
+  
+  runningMan(){
+    this.authControlLog.runningMan().subscribe( user => {
+      console.log("Function => runningMan()");
+    },
+    err => {
+      this.error = err;
+    })
+  }
+  
+  servoOn(){
+    this.authControlLog.servoON().subscribe( user => {
+      console.log("Function => servoOn()");
+    },
+    err => {
+      this.error = err;
+    })
+  }
+  
+  servoOff(){
+    this.authControlLog.servoOFF().subscribe( user => {
+      console.log("Function => servoOff()");
+    },
+    err => {
+      this.error = err;
+    })
+  }
 }
