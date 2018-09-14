@@ -15,7 +15,6 @@ export class FrankiFunctionsComponent {
 
   error: String;
   toggle: Boolean = false;
-  lcdInput: String;
 
   toggleBtn ()
   {
@@ -68,13 +67,13 @@ export class FrankiFunctionsComponent {
   }
   
   //CUSTOM TEXT
-  values = '';
+  values = { text: '' };
 
   onKey(event: any) { // without type info
-    this.values += event.target.value;
+    this.values.text = event.target.value;
     this.textLCD();
   }
-  textLCD(){
+  textLCD() {
     this.authControlLog.textLCD(this.values).subscribe( user => {
       console.log("Function => textLCD()");
     },

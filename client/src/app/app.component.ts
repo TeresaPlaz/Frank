@@ -27,16 +27,6 @@ export class AppComponent {
       }
     )
   }
-
-  // ngOnInit() {
-    
-  //   this.authControlLog.isLoggedIn().subscribe( user =>
-  //   { 
-  //     this.authControlLog.globalUser = user.username ;
-  //     // this.user = user.username;
-  //     return user; 
-  //   }, err => { console.error(err) });
-  // }
   
   ngDoCheck() {
     //Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check.

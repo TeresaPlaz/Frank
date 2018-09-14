@@ -1,34 +1,15 @@
-.logForm{
-  position: fixed;
-  text-align: center;
-  padding-left: 38.5%;
-  /* padding-right: 38%;  */
-  margin-top: 10%;
-  color: rgb(230, 244, 250);
-  /* // margin: auto auto; */
-}
 .forms{
-  /* text-align: left; */
-  /* width: 300px; */
-  margin-top: 50px;
+  margin-top: 3%;
 }
+
 .formBtn{
-  display: flex;
-  align-items: center;
-  margin: 0 0 0 10%;
+  margin: 130% 0 0 0;
 }
-.bordered {
-  color: white;
-  /* border: 2px solid white; */
-  /* rgb(88, 180, 241); */
-  background-color: rgb(202, 199, 199);
-}
-.logForm button{
-  margin: 0 5%; 
-}
+
 .signupErr .form-control.ng-touched.ng-invalid{
   border: 1px solid red;
 }
+
 .errMsg{
   color: red;
   border-radius: 3px;

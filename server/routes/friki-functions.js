@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const passport   = require('passport');
 const firmata = require("firmata");
 const mongoose = require('mongoose');
 // const Messages = require('./../models/Message');
@@ -89,10 +90,9 @@ router.get('/5', (req,res,next) => {
 
 // FUNCTION 06 TEXT
 router.post('/6', (req,res,next) => {
-    // lcd.clear();
-    const txt = req.body;
+    lcd.clear();
+  const { text } = req.body;
     // led.stop().off();
-    console.log(req.body);
     lcd.cursor(0, 0).print(``);
     lcd.cursor(1, 0).print(`Mi primer texto,`);
   

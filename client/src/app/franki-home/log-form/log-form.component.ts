@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-log-form',
   templateUrl: './log-form.component.html',
-  styleUrls: ['./log-form.component.css'],
-  // providers: [AuthLogService]
+  styleUrls: ['./log-form.component.css']
 })
 export class LogFormComponent
 {
@@ -44,7 +43,6 @@ export class LogFormComponent
 
   signup ()
   {
-    // console.log( this.newUser );
     this.authControlLog.signup(this.newUser)
       .subscribe(
       user =>

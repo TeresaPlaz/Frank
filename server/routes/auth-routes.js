@@ -14,7 +14,8 @@ authRoutes.post( '/logout', ( req, res, next ) =>
     res.status(200).json({ message: 'Success' });
   });
 
-authRoutes.post('/signup', (req, res, next) => {
+authRoutes.post( '/signup', ( req, res, next ) =>
+{
     const {username, password} = req.body;
   
     if (!username || !password) {
