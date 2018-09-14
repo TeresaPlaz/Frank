@@ -9,19 +9,12 @@ import { AuthLogService } from './../franki-home/service/auth-log.service';
   templateUrl: './franki-functions.component.html',
   styleUrls: ['./franki-functions.component.css']
 })
-export class FrankiFunctionsComponent implements OnInit {
+export class FrankiFunctionsComponent {
 
   constructor(private authControlLog: AuthLogService, private router: Router) { }
 
   error: String;
-
-  ngOnInit() {
-  }
-
-  // toggleBtn ()
-  // {
-  //   this.authControlLog
-  // }
+  toggle: Boolean = false;
 
   blinkBtn()
   {
@@ -33,6 +26,30 @@ export class FrankiFunctionsComponent implements OnInit {
         this.error = err;
       })
   }
+
+  toggleBtn ()
+  {
+    this.toggle = !this.toggle;
+    if ( this.toggle )
+    {
+      this.authControlLog.blink().subscribe( user => {
+        console.log("Function => Turn ON LED");
+      },
+      err => {
+        this.error = err;
+      })
+    }
+    else if ( !this.toggle )
+    {
+      this.authControlLog.turnOff().subscribe( user => {
+        console.log("Function => Turn OFF LED");
+      },
+      err => {
+        this.error = err;
+      })
+    }
+  }
+
   turnOffLED(){
     this.authControlLog.turnOff().subscribe( user => {
       console.log("Function => turnOffLED()");
@@ -50,6 +67,7 @@ export class FrankiFunctionsComponent implements OnInit {
       this.error = err;
     })
   }
+
   turnBlueLED(){
     this.authControlLog.blueLED().subscribe( user => {
       console.log("Function => turnBlueLED()");
@@ -58,6 +76,7 @@ export class FrankiFunctionsComponent implements OnInit {
       this.error = err;
     })
   }
+
   turnGreenLED(){
     this.authControlLog.greenLED().subscribe( user => {
       console.log("Function => turnGreenLED()");
