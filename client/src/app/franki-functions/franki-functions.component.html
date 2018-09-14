@@ -6,93 +6,88 @@
             <div class="row">
 
                 <div class="eight wide column">
-                    <img
-                    src="./../../assets/led-rgb.png"
-                    class="ui large rounded image"></div>
-                <div class="eight wide right floated column">
-                    <h2 class="ui header">
-                        <i class="lightbulb icon"></i>
-                        <div class="content">
-                            LED:  Make the LED light turn on or off, blink or change its color through
-                            wifi
-                        </div>
-                    </h2>
-
-                    <p> Turn ON/OFF the LED</p>
-                    <div class="ui toggle checkbox toggleButton">
-                        <input type="checkbox" name="public" (click)="toggleBtn()">
-                            <label>ON/OFF</label>
-                    </div>
-                    <img src="" class="ui large bordered rounded image">
-                    
-                    <p>Make the LED change the colors: </p>
-                    <div class="toggleButton">
-                        <button class="ui red button" (click)="turnRedLED()">
-                            Red
-                        </button>
-                        <button class="ui blue button" (click)="turnBlueLED()">
-                            Blue
-                        </button>
-                        <button class="ui green button" (click)="turnGreenLED()">
-                            Green
-                        </button>
-                    </div>
-                
-                           
-                            
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- WHITE-DIV -->
-    <div class="ui inverted vertical masthead aligned center segment whiteDiv">
-        <div class="ui middle aligned stackable grid container">
-            <div class="row">
-                <div class="six wide column">
-                    <h2 class="inverted ui header">
-                        <i class="keyboard icon"></i>
-                        <div class="content">
-                            LCD:  Make the LCD show a custom message on the screen or run an animation
-                        </div>
-                    </h2>
-                    <div class="ui inverted attached segment input">
-                        <input type="text">
-                    </div>
-                    <div class="aligned ui segment input inverted">
-                        <a class="ui teal huge button buybtn">Activate the running man</a>
-                    </div>
-                    </div>
+                    <img src="./../../assets/led-rgb.png" class="ui large rounded image"></div>
                     <div class="eight wide right floated column">
-                        <img src="./../../assets/try4.png" class="ui big rounded image"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- BLACK-DIV -->
-            <div class="ui vertical stripe segment blackDiv">
-                <div class="ui middle aligned stackable grid container">
-                    <div class="row">
 
-                        <div class="eight wide column">
-                            <img src="../../assets/servo.png" class="ui large rounded image">
-                        </div>
-                            <div class="six wide right floated column">
-                                <h2 class="ui header">
-                                    <i class="space shuttle icon"></i>
-                                    <div class="content">
-                                        SERVO
+                        <h2 class="ui header">
+                            <i class="lightbulb icon"></i>
+                            <div class="content">
+                                LED: Make the LED light turn on or off, blink or change its color through wifi
+                            </div>
+                        </h2>
+
+                        <div class="ui grid toggleButton">
+                            <div class="eight wide column">
+                                <p>Turn ON/OFF the LED</p>
+                                <div class="ui toggle checkbox toggleButton">
+                                    <input type="checkbox" name="public" (click)="toggleBtn()">
+                                        <label>ON/OFF</label>
                                     </div>
-                                </h2>
-                                <br/>
-                                <div class="aligned ui input">
-                                    <a class="ui teal huge button buybtn">Activate the servo motor</a>
+                                </div>
+
+                                <div class="eight wide column">
+                                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Make the LED change its colors</p>
+                                        <button class="ui red button" (click)="turnRedLED()">
+                                            Red
+                                        </button>
+                                        <button class="ui blue button" (click)="turnBlueLED()">
+                                            Blue
+                                        </button>
+                                        <button class="ui green button" (click)="turnGreenLED()">
+                                            Green
+                                        </button>
                                 </div>
                             </div>
+                        </div>
                     </div>
-            </div>
-        </div>
+                </div>
                 <!-- WHITE-DIV -->
-    <div class="ui inverted vertical footer segment">
-                    
-    </div>
+                <div class="ui inverted vertical masthead aligned center segment whiteDiv">
+                    <div class="ui middle aligned stackable grid container">
+                        <div class="row">
+                            <div class="six wide column">
+                                <h2 class="inverted ui header">
+                                    <i class="keyboard icon"></i>
+                                    <div class="content">
+                                        LCD: Make the LCD show a custom message on the screen or run an animation
+                                    </div>
+                                </h2>
+                                <div class="ui inverted attached segment input">
+                                    <input type="text"></div>
+                                    <div class="aligned ui segment input inverted">
+                                        <a class="ui teal huge button buybtn">Activate the running man</a>
+                                    </div>
+                                </div>
+                                <div class="eight wide right floated column">
+                                    <img src="./../../assets/try4.png" class="ui big rounded image"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- BLACK-DIV -->
+                        <div class="ui vertical stripe segment blackDiv">
+                            <div class="ui middle aligned stackable grid container">
+                                <div class="row">
 
-</div>
+                                    <div class="eight wide column">
+                                        <img src="../../assets/servo.png" class="ui large rounded image"></div>
+                                        <div class="six wide right floated column">
+                                            <h2 class="ui header">
+                                                <i class="space shuttle icon"></i>
+                                                <div class="content">
+                                                    SERVO: Make the motor run
+                                                </div>
+                                            </h2>
+                                            <br/>
+                                            <div class="ui buttons servoButton">
+                                                <button class="ui blue button">ON</button>
+                                                <div class="or"></div>
+                                                <button class="ui red button">OFF</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- WHITE-DIV -->
+                            <div class="ui inverted vertical footer segment"></div>
+
+                        </div>

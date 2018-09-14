@@ -1,8 +1,11 @@
-.toggleButton{
-  margin: 0 20% 5% 20%;
-  padding: 10px 20px;
-  border-radius: 5px;
+.servoButton{
+  margin-left: 30%;
 }
+
+.toggleButton {
+  margin-top: 6%;
+}
+
 .pusher {
   margin-top: 5%;
 }

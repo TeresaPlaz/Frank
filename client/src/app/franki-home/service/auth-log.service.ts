@@ -46,6 +46,7 @@ export class AuthLogService
     return this.http.post(`${environment.BASE_URL}/auth/login`, user, { withCredentials:true }).pipe(map(res => res.json()), catchError(this.handleError));
 };
 
+  //Logged In check
  isLoggedIn() {
    return this.http.get( `${environment.BASE_URL}/auth/loggedin`, { withCredentials:true }).pipe(map(res => res.json()),catchError(this.handleError));
 };
@@ -66,6 +67,7 @@ export class AuthLogService
        withCredentials:true 
     }).pipe(map(res => res.json()), catchError(this.handleError));
   };
+
 //TURN OFF LED
   turnOff()
   {
@@ -73,6 +75,7 @@ export class AuthLogService
       withCredentials:true
     }).pipe(map(res => res.json()), catchError(this.handleError));
   };
+
 //LED RED
 redLED()
   {
@@ -80,6 +83,7 @@ redLED()
       withCredentials:true
     }).pipe(map(res => res.json()), catchError(this.handleError));
   };
+
 //LED BLUE
 blueLED()
   {
@@ -87,6 +91,7 @@ blueLED()
       withCredentials:true
     }).pipe(map(res => res.json()), catchError(this.handleError));
   };
+
 //LED GREEN
 greenLED()
   {

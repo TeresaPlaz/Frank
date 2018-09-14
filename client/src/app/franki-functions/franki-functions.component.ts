@@ -15,6 +15,7 @@ export class FrankiFunctionsComponent {
 
   error: String;
   toggle: Boolean = false;
+  lcdInput: String;
 
   toggleBtn ()
   {
