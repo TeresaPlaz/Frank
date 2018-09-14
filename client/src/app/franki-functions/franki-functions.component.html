@@ -7,100 +7,92 @@
 
                 <div class="eight wide column">
                     <img
-                        src="http://johnny-five.io/img/breadboard/led-rgb.png"
-                        class="ui large rounded image"></div>
-                    <div class="six wide right floated column">
-                        <h2 class="ui header">
-                            <i class="lightbulb icon"></i>
-                            <div class="content">
-                                LED:  Make the LED light turn on or off, blink or change its color through
-                                wifi
-                            </div>
-                        </h2>
-
-                        <p> Turn ON/OFF the LED</p>
-                        <div class="ui toggle checkbox toggleButton">
-                            <input type="checkbox" name="public" (click)="toggleBtn()">
-                                <label>ON/OFF</label>
-                            </div>
+                    src="./../../assets/led-rgb.png"
+                    class="ui large rounded image"></div>
+                <div class="eight wide right floated column">
+                    <h2 class="ui header">
+                        <i class="lightbulb icon"></i>
+                        <div class="content">
+                            LED:  Make the LED light turn on or off, blink or change its color through
+                            wifi
                         </div>
+                    </h2>
+
+                    <p> Turn ON/OFF the LED</p>
+                    <div class="ui toggle checkbox toggleButton">
+                        <input type="checkbox" name="public" (click)="toggleBtn()">
+                            <label>ON/OFF</label>
+                    </div>
+                    <img src="" class="ui large bordered rounded image">
+                    
+                    <p>Make the LED change the colors: </p>
+                    <div class="toggleButton">
+                        <button class="ui red button" (click)="turnRedLED()">
+                            Red
+                        </button>
+                        <button class="ui blue button" (click)="turnBlueLED()">
+                            Blue
+                        </button>
+                        <button class="ui green button" (click)="turnGreenLED()">
+                            Green
+                        </button>
+                    </div>
+                
+                           
+                            
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- WHITE-DIV -->
+    <div class="ui inverted vertical masthead aligned center segment whiteDiv">
+        <div class="ui middle aligned stackable grid container">
+            <div class="row">
+                <div class="six wide column">
+                    <h2 class="inverted ui header">
+                        <i class="keyboard icon"></i>
+                        <div class="content">
+                            LCD:  Make the LCD show a custom message on the screen or run an animation
+                        </div>
+                    </h2>
+                    <div class="ui inverted attached segment input">
+                        <input type="text">
+                    </div>
+                    <div class="aligned ui segment input inverted">
+                        <a class="ui teal huge button buybtn">Activate the running man</a>
+                    </div>
+                    </div>
+                    <div class="eight wide right floated column">
+                        <img src="./../../assets/try4.png" class="ui big rounded image"></div>
                     </div>
                 </div>
             </div>
-            <!-- WHITE-DIV -->
-            <div class="ui inverted vertical masthead aligned center segment whiteDiv">
+            <!-- BLACK-DIV -->
+            <div class="ui vertical stripe segment blackDiv">
                 <div class="ui middle aligned stackable grid container">
                     <div class="row">
-                        <div class="six wide column">
-                            <h2 class="inverted ui header">
-                                <i class="keyboard icon"></i>
-                                <div class="content">
-                                    LCD:  Make the LCD show a custom message on the screen or run an animation
-                                </div>
-                            </h2>
-                            <div class="ui inverted attached segment input">
-                                <input type="text">
-                            </div>
-                            <div class="aligned ui segment input inverted">
-                                <a class="ui huge button buybtn">Activate the running man</a>
-                            </div>
-                            </div>
-                            <div class="eight wide right floated column">
-                                <img src="./../../assets/try4.png" class="ui big rounded image"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- BLACK-DIV -->
-                    <div class="ui vertical stripe segment blackDiv">
-                        <div class="ui middle aligned stackable grid container">
-                            <div class="row">
 
-                                <div class="eight wide column">
-                                    <img src="../../assets/servo.png" class="ui large rounded image"></div>
-                                    <div class="six wide right floated column">
-                                        <h2 class="ui header">
-                                            <i class="space shuttle icon"></i>
-                                            <div class="content">
-                                                SERVO
-                                            </div>
-                                        </h2>
-                                        <br/>
-                                        <div class="aligned ui input">
-                                            <a class="ui huge button buybtn">Activate the servo motor</a>
-                                        </div>
+                        <div class="eight wide column">
+                            <img src="../../assets/servo.png" class="ui large rounded image">
+                        </div>
+                            <div class="six wide right floated column">
+                                <h2 class="ui header">
+                                    <i class="space shuttle icon"></i>
+                                    <div class="content">
+                                        SERVO
                                     </div>
+                                </h2>
+                                <br/>
+                                <div class="aligned ui input">
+                                    <a class="ui teal huge button buybtn">Activate the servo motor</a>
                                 </div>
                             </div>
-                        </div>
-                        <!-- WHITE-DIV -->
-                        <div class="ui inverted vertical footer segment">
-                            <div class="ui container">
-                                <div class="ui stackable inverted divided equal height stackable grid">
-                                    <div class="three wide column">
-                                        <h4 class="ui inverted header">About</h4>
-                                        <div class="ui inverted link list">
-                                            <a href="#" class="item">Sitemap</a>
-                                            <a href="#" class="item">Contact Us</a>
-                                            <a href="#" class="item">Religious Ceremonies</a>
-                                            <a href="#" class="item">Gazebo Plans</a>
-                                        </div>
-                                    </div>
-                                    <div class="three wide column">
-                                        <h4 class="ui inverted header">Services</h4>
-                                        <div class="ui inverted link list">
-                                            <a href="#" class="item">Banana Pre-Order</a>
-                                            <a href="#" class="item">DNA FAQ</a>
-                                            <a href="#" class="item">How To Access</a>
-                                            <a href="#" class="item">Favorite X-Men</a>
-                                        </div>
-                                    </div>
-                                    <div class="seven wide column">
-                                        <h4 class="ui inverted header">Footer Header</h4>
-                                        <p>Extra space for a call to action inside the footer that could help re-engage
-                                            users.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
+            </div>
+        </div>
+                <!-- WHITE-DIV -->
+    <div class="ui inverted vertical footer segment">
+                    
+    </div>
+
+</div>
