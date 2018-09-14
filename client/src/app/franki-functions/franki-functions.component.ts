@@ -16,17 +16,6 @@ export class FrankiFunctionsComponent {
   error: String;
   toggle: Boolean = false;
 
-  blinkBtn()
-  {
-    this.authControlLog.blink().subscribe( user =>
-      {
-        console.log("Function => blink()");
-      },
-      err => {
-        this.error = err;
-      })
-  }
-
   toggleBtn ()
   {
     this.toggle = !this.toggle;
@@ -48,15 +37,6 @@ export class FrankiFunctionsComponent {
         this.error = err;
       })
     }
-  }
-
-  turnOffLED(){
-    this.authControlLog.turnOff().subscribe( user => {
-      console.log("Function => turnOffLED()");
-    },
-    err => {
-      this.error = err;
-    })
   }
   
   turnRedLED(){
