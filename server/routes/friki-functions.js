@@ -88,10 +88,12 @@ router.get('/5', (req,res,next) => {
 });
 
 // FUNCTION 06 TEXT
-router.get('/6', (req,res,next) => {
-    lcd.clear();
-    led.stop().off();
-    lcd.cursor(0, 0).print(`Hola Mundo -> `);
+router.post('/6', (req,res,next) => {
+    // lcd.clear();
+    const txt = req.body;
+    // led.stop().off();
+    console.log(req.body);
+    lcd.cursor(0, 0).print(``);
     lcd.cursor(1, 0).print(`Mi primer texto,`);
   
   setTimeout(function() {
@@ -109,8 +111,9 @@ router.get('/6', (req,res,next) => {
 
 // FUNCTION 07 RUNNING-MAN
 router.get('/7', (req,res,next) => {
+  lcd.clear();
   servin.stop();
-  led.stop().off();
+  // led.stop().off();
   let frame = 1;
   let frames = [":runninga:", ":runningb:"];
   let row = 1;
@@ -141,14 +144,14 @@ router.get('/8', (req,res,next) => {
   clearInterval(running);
   // lcd.clear();
   servin.sweep();
-  led.stop().off();
+  // led.stop().off();
   res.json("Funtion8 - SERVO ON");
 });
 
 // FUNCTION 09 SERVO OFF
 router.get('/9', (req,res,next) => {
   servin.stop();
-  led.stop().off();
+  // led.stop().off();
   res.json("Funtion9 - SERVO OFF");
 });
 

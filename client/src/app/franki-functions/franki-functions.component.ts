@@ -67,8 +67,15 @@ export class FrankiFunctionsComponent {
     })
   }
   
+  //CUSTOM TEXT
+  values = '';
+
+  onKey(event: any) { // without type info
+    this.values += event.target.value;
+    this.textLCD();
+  }
   textLCD(){
-    this.authControlLog.textLCD().subscribe( user => {
+    this.authControlLog.textLCD(this.values).subscribe( user => {
       console.log("Function => textLCD()");
     },
     err => {

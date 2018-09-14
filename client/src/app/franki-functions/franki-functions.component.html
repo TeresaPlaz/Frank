@@ -55,9 +55,9 @@
                                     </div>
                                 </h2>
                                 <div class="ui inverted attached segment input">
-                                    <input type="text"></div>
+                                    <input type="text" name="texto" (keyup)="onKey($event)"></div>
                                     <div class="aligned ui segment input inverted">
-                                        <a class="ui teal huge button buybtn">Activate the running man</a>
+                                        <a class="ui teal huge button buybtn" (click)="runningMan()">Activate the running man</a>
                                     </div>
                                 </div>
                                 <div class="eight wide right floated column">
@@ -81,9 +81,9 @@
                                             </h2>
                                             <br/>
                                             <div class="ui buttons servoButton">
-                                                <button class="ui blue button">ON</button>
+                                                <button class="ui blue button" (click)="servoOn()">ON</button>
                                                 <div class="or"></div>
-                                                <button class="ui red button">OFF</button>
+                                                <button class="ui red button" (click)="servoOff()">OFF</button>
                                             </div>
                                         </div>
                                     </div>

@@ -100,11 +100,10 @@ greenLED()
     }).pipe(map(res => res.json()), catchError(this.handleError));
   };
 //TEXT LCD SCREEN
-textLCD()
+textLCD(text)
   {
-    return this.http.get(`${environment.BASE_URL}/functions/6`, {
-      withCredentials:true
-    }).pipe(map(res => res.json()), catchError(this.handleError));
+    console.log(text);
+    return this.http.post(`${environment.BASE_URL}/functions/6`, text ).pipe(map(res => res.json()), catchError(this.handleError));
   }
 //RUNNING MAN
 runningMan()

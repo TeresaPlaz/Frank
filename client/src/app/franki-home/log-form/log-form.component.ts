@@ -49,7 +49,7 @@ export class LogFormComponent
       .subscribe(
       user =>
       {
-        this.authControlLog.globalUser = user;
+        this.authControlLog.globalUser = user.username;
           this.router.navigate(['functions'])
         },
         err => {
