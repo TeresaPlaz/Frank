@@ -27,8 +27,13 @@
         <div class="ui middle aligned center aligned grid">
             <div class="column">
               <h2 class="ui teal image header"></h2>
+<<<<<<< Updated upstream
           <form class="ui large form error" #form="ngForm" (ngSubmit)="signup()">
             <div class="ui large stacked segment signupErr">
+=======
+          <form class="ui form error" #form="ngForm" (ngSubmit)="signup()">
+            <div class="ui huge stacked segment signupErr">
+>>>>>>> Stashed changes
                 <div class="two field">
                   <div class="field">
                     <div class="ui left icon input">
@@ -50,7 +55,7 @@
                     *ngIf="!myName.valid && (myName.dirty || myName.touched)">
                     <div *ngIf="myName.errors.required" class="field">
                         <!-- [hidden]="!myPerson.errors" -->
-                        <div class="ui mini error message">
+                        <div class="ui error mini message">
                             <div class="header">The [username] is required.</div>
                           </div>
                         

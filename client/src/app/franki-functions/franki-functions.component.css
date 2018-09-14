@@ -2,12 +2,10 @@ p{
   /* color: black; */
   margin: 20% 0 5% 20%;
 }
-button{
+.toggleButton{
   margin: 0 20% 5% 20%;
   padding: 10px 20px;
   border-radius: 5px;
-  background-color: cadetblue;
-  color: white;
 }
 .pusher {
   margin-top: 5%;

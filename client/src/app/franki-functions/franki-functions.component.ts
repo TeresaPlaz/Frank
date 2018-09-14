@@ -18,6 +18,11 @@ export class FrankiFunctionsComponent implements OnInit {
   ngOnInit() {
   }
 
+  // toggleBtn ()
+  // {
+  //   this.authControlLog
+  // }
+
   blinkBtn()
   {
     this.authControlLog.blink().subscribe( user =>

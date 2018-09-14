@@ -55,6 +55,10 @@ export class AuthLogService
     return this.http.post(`${environment.BASE_URL}/auth/logout`, { withCredentials: true }).pipe(map(res => console.log(res.json())), catchError(this.handleError));
 }
 
+  
+  // FUNCTIONS OF THE ARDUINO START HERE 
+  
+  
 //BLINK
   blink()
   {
