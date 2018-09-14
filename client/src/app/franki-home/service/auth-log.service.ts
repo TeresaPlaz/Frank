@@ -58,6 +58,38 @@ export class AuthLogService
 //BLINK
   blink()
   {
-    return this.http.get(`${environment.BASE_URL}/fun/1`, { withCredentials:true }).pipe(map(res => res.json()), catchError(this.handleError));
+    return this.http.get(`${environment.BASE_URL}/functions/1`, {
+       withCredentials:true 
+    }).pipe(map(res => res.json()), catchError(this.handleError));
   };
+//TURN OFF LED
+  turnOff()
+  {
+    return this.http.get(`${environment.BASE_URL}/functions/2`, {
+      withCredentials:true
+    }).pipe(map(res => res.json()), catchError(this.handleError));
+  };
+//LED RED
+redLED()
+  {
+    return this.http.get(`${environment.BASE_URL}/functions/3`, {
+      withCredentials:true
+    }).pipe(map(res => res.json()), catchError(this.handleError));
+  };
+//LED BLUE
+blueLED()
+  {
+    return this.http.get(`${environment.BASE_URL}/functions/4`, {
+      withCredentials:true
+    }).pipe(map(res => res.json()), catchError(this.handleError));
+  };
+//LED GREEN
+greenLED()
+  {
+    return this.http.get(`${environment.BASE_URL}/functions/5`, {
+      withCredentials:true
+    }).pipe(map(res => res.json()), catchError(this.handleError));
+  };
+
+
 }

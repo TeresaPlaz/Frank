@@ -80,11 +80,11 @@ router.get('/4', (req,res,next) => {
     
 });
 
-// FUNCTION 05 PURPLE
+// FUNCTION 05 GREEN
 router.get('/5', (req,res,next) => {
   led.stop();
   led.color('green'); // <===== [COLOR]
-  res.json('Function5 -- PURPLE');
+  res.json('Function5 -- GREEN');
 });
 
 // FUNCTION 06 TEXT

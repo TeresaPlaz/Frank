@@ -85,7 +85,7 @@ const auth = require( './routes/auth-routes' );
 const userCrud = require( './routes/user' );
 
 
-app.use('/fun', functions);
+app.use('/functions', functions);
 app.use( '/auth', auth );
 app.use( '/user', userCrud );
 
