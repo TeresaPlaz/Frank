@@ -60,7 +60,7 @@ app.use(require('node-sass-middleware')({
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 app.use(
   (req, res, next) => {
