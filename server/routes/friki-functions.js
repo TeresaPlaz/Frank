@@ -92,14 +92,15 @@ router.get('/5', (req,res,next) => {
 router.post('/6', (req,res,next) => {
     lcd.clear();
   const { text } = req.body;
+  console.log(text);
     // led.stop().off();
-    lcd.cursor(0, 0).print(``);
-    lcd.cursor(1, 0).print(`Mi primer texto,`);
+    lcd.cursor(0, 0).print("Your text: ");
+    lcd.cursor(1, 0).print(text);
   
-  setTimeout(function() {
-    lcd.clear();
-    lcd.cursor(0, 0).print(`lo escribo aqui`);
-  }, 2000);
+  // setTimeout(function() {
+  //   lcd.clear();
+  //   lcd.cursor(0, 0).print(`lo escribo aqui`);
+  // }, 2000);
   // Message.findById(req.params.id)
     //     .then(message => {
     //         res.json(message);
