@@ -8,28 +8,28 @@ let five = require("johnny-five"), board, lcd, led, servin, running;
 // EtherPortClient INIT 
 const EtherPortClient = require('etherport-client').EtherPortClient;
 
-//WIFI PORT
-//   let port = new EtherPortClient({
-//     host: '192.168.43.46', //'192.168.0.16',  
-//     port: 3030
-//   });
+// WIFI PORT
+  let port = new EtherPortClient({
+    host: '192.168.43.46', //'192.168.0.16',  
+    port: 3030
+  });
 
-//ARDUINO WIFI
-// //ESP8622
-// board = new firmata.Board(port);
-// board.once("ready", function() 
-// {
-//   console.log("ready");
-//   board.isReady = true;
+// ARDUINO WIFI
+//ESP8622
+board = new firmata.Board(port);
+board.once("ready", function() 
+{
+  console.log("ready");
+  board.isReady = true;
 
-//   //Virtual board to access with Johnny5
-//   let Franky = new five.Board({io: board});
-//   Franky.on("ready", function()
-//   {
-//     console.log("five ready");
-//     led = new five.Led.RGB({pins: {green:5,red: 16,blue: 4}}); // | G-D1 => 5 | R-D0 => 16 | B-D2 => 4 |  
-//   });
-// });
+  //Virtual board to access with Johnny5
+  let Franky = new five.Board({io: board});
+  Franky.on("ready", function()
+  {
+    console.log("five ready");
+    led = new five.Led.RGB({pins: {green:5,red: 16,blue: 4}}); // | G-D1 => 5 | R-D0 => 16 | B-D2 => 4 |  
+  });
+});
 
 //ARDUINO CABLE
 let franki = new five.Board();
