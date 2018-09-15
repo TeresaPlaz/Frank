@@ -23,7 +23,7 @@ export class LogFormComponent
   
   error: String;
 
-  constructor(private authControlLog: AuthLogService, private router: Router) { }
+  constructor(public authControlLog: AuthLogService, private router: Router) { }
 
 
   login ()
