@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 } )
   
 export class AppComponent {
-  constructor(private authControlLog: AuthLogService,  private router: Router) {}
+  constructor(public authControlLog: AuthLogService,  private router: Router) {}
 
   NavID: Boolean;
   NavID2: Boolean;
