@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  BASE_URL: 'https://frankduino.herokuapp.com'
+  BASE_URL: 'http://localhost:3000',
+  BASE_URL2: 'http://localhost:8080'
 };
 
 /*
